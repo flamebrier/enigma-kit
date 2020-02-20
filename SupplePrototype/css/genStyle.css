@@ -1,0 +1,219 @@
+@font-face {
+    font-family: Hobo; /* Гарнитура шрифта */
+    src: url(../fonts/Hobo.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+    font-family: Candara; /* Гарнитура шрифта */
+    src: url(../fonts/Candara.ttf); /* Путь к файлу со шрифтом */
+}
+html {
+    background-color: #f8f9fa;
+}
+body {
+    margin: 0;
+    padding: 0;
+    color: #1b1e21;
+    font-size: 12px;
+    font-family: Hobo, Candara, Arial, sans-serif ;
+}
+main {
+}
+@keyframes fadein {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+/**
+ * Меню
+ */
+nav {
+    background-image: url("../img/bg_leaves2.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0 auto;
+    width:100%;
+    text-align: center;
+    border-bottom-left-radius: 100% 2vmax; border-bottom-right-radius: 100% 2vmax;
+    overflow: hidden;
+    height: max-content;
+    transition: all 0.2s ease-in-out;
+}
+nav ul:before {
+    content: "Supple";
+    color: white;
+    font-family: Hobo, sans-serif;
+    font-size: 5em;
+    display: inline-block;
+    vertical-align: middle;
+    position: static;
+    left: 0;
+    top:0;
+}
+nav ul {
+    background-image: url("../img/bg_seamless3.png");
+    list-style: none;
+    margin: 0 auto;
+    padding-left: 0;
+    border-radius: 20%;
+    /*width: max-content;*/
+}
+nav li {
+    display: inline-block;
+    vertical-align:middle;
+    padding: 2em 0;
+}
+nav li:after {
+    content: "|";
+    color: white;
+    font-size: 2em;
+    font-weight: 300;
+    display: inline-block;
+}
+nav li:last-child:after {content: none;}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.8em;
+    margin: 0 1em 0 1em ;
+    padding: 1em;
+    border-radius: 1vmax 1vmax 1vmax 1vmax;
+    border-left: 0.25em solid rgba(224,168,0,0);
+    border-right: 0.25em solid rgba(224,168,0,0);
+    transition: all 0.5s ease-in-out;
+}
+nav a:hover{
+    border-left: 0.25em solid rgba(224,168,0,1);
+    border-right: 0.25em solid rgba(224,168,0,1);
+}
+nav .tmp {
+    color: rgba(224,168,0,1);
+}
+
+#find {
+    height: 2em;
+}
+#find button{
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    width: 9.5%;
+    height: 3em;
+    border: 0;
+    background-color: transparent;
+    font-size: 2em;
+    margin-top: -0.5em;
+    transition: all 0.2s ease-in-out;
+}
+#find button:hover, #find button:active {
+    font-size: 4em;
+    background-color: transparent;
+    margin-top: -1em;
+}
+#find input{
+    display: inline-block;
+    margin-left: 5%;
+    width: 90%;
+    height: 3em;
+    border: 0;
+    background-color: transparent;
+    font-size: 1.5em;
+    vertical-align: middle;
+}
+
+header {
+    color: white;
+    width: 100%;
+    padding-top: 0.5%;
+    padding-bottom: 1%;
+    text-align: center;
+    background-color: #e0a800;
+    border-top-left-radius: 100% 2em;
+    border-bottom-right-radius: 100% 2em;
+}
+header b {
+    font-size: 2.5em;
+}
+
+.enigma {
+    width: 300px;
+    padding: 1em;
+    display: inline-block;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 1em;
+    margin: 2vmin;
+    white-space: normal;
+    overflow-y: auto;
+    max-height: 50vh;
+    min-height: 400px;
+    vertical-align: top;
+}
+
+.enigma img {
+    width: 100%;
+    border-radius: 1em;
+    transition: all .2s ease;
+}
+.enigma img:hover {
+    opacity: 0.7;
+}
+
+.enigma label {
+    display: block;
+    margin: 1em;
+}
+
+.enigma form {
+    overflow-y: auto;
+}
+
+.enigma input[type=range] {
+    width: 100%;
+}
+
+#gen {
+    white-space: nowrap;
+    overflow-x: auto;
+    vertical-align: top;
+}
+
+.arrow:before {
+    width: 0;
+    height: 0;
+    content: "";
+    border: 30px solid;
+    border-color: #e43f57 #e43f57 #e43f57 transparent ;
+    position: absolute;
+    margin-left: -55px;
+    margin-top: 0px;
+}
+.arrow {
+    width: 30px;
+    height: 60px;
+    background-color: #e43f57 ;
+    position: absolute;
+    margin-top: -50px;
+    margin-left: 0px;
+}
+.arrow:after {
+    width: 0;
+    height: 0;
+    content: "";
+    border: 30px solid;
+    border-color: transparent transparent transparent #e43f57;
+    position: absolute;
+    margin-left: 30px;
+    margin-top: 0px;
+}
+.arrow p {
+    color: white;
+    position: absolute;
+    z-index: 1000;
+    white-space: nowrap;
+    font-size: 1.5em;
+    margin-left: -1em;
+}
