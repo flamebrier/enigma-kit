@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Supple - подари гибкий мозг!</title>
+    <link rel="stylesheet" href="../css/commonStyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="sign" class="shine">
+    <a href="profile.html"><button>☻</button></a>
+    <a href="map.html"><button>🖺</button></a>
+</div>
+<nav>
+    <ul>
+        <li><a href="html/gen.html">Генератор</a></li>
+        <li><a class="tmp">Лучшие киты</a></li>
+        <li><a href="html/enigmas.html">Головоломки</a></li>
+        <li><a href="html/kit.html">Случайный кит!</a></li>
+    </ul>
+</nav>
+<main>
+    <form id="find">
+        <label>
+            <input type="url" placeholder="Введите ссылку на кит"/>
+            <button>🔍</button>
+        </label>
+    </form>
+    <header>
+        <h1><b>Лучшие киты</b> - пройди, что сделали другие!</h1>
+    </header>
+    <div id="content">
+        <div class="kit">
+            <div class="arrow"><p><a href="exec.html">Пройти!</a></p></div>
+                <div class="kitimg">
+                    <img src="enigma/img/blocks.png" alt="Кит"/>
+                </div>
+                <div class="kitinfo">
+                    <p>
+                        Ностальгический кит
+                    </p>
+                    <p>
+                        <b>Автор:</b> Flamebrier
+                    </p>
+                </div>
+            <div class="kitbuttons shine">
+                <button><a href="#">⭐ В избранное</a></button>
+                <button onclick="alert('Поделиться')">Генерировать ссылку</button>
+            </div>
+        </div>
+    </div>
+    <div id="submit" class="shine" >
+        <button type="button" onclick="alert('Сохранено как черновик')">Черновик</button>
+        <button type="submit" onclick="alert('Поделиться')">Готово!</button>
+        <button type="reset">Отмена</button>
+    </div>
+</main>
+</body>
+</html>

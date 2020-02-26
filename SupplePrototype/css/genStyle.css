@@ -84,63 +84,6 @@
 }
 
 /*
- * Стрелки этапов
- */
-.arrow:before {
-    width: 0;
-    height: 0;
-    font-size: 0;
-    content: "";
-    border: 30px solid;
-    border-color: #0b2e13 #0b2e13 #0b2e13 transparent;
-    border-radius: 10px 0 0 10px;
-    position: relative;
-    left:-60px;
-    top: 30px;
-}
-.arrow {
-    width: 30px;
-    height: 60px;
-    background-color: #0b2e13;
-    position: relative;
-    left:30px;
-    margin-bottom: -50px;
-    font-size: 0;
-}
-.arrow:after {
-    width: 0;
-    height: 0;
-    font-size: 0;
-    content: "";
-    border: 30px solid;
-    border-color: transparent transparent transparent #0b2e13;
-    position: relative;
-    left:30px;
-    bottom: 71px;
-}
-.arrow p {
-    color: white;
-    z-index: 1000;
-    white-space: nowrap;
-    font-size: 20px;
-    font-weight: normal;
-    font-style: italic;
-    margin-left: -30px;
-    position: relative;
-    top: -22px;
-
-    background-color: #0b2e13;
-    background-image: url("../img/bg_seamless3.png");
-    background-size: 25vmin;
-    background-attachment: fixed;
-    background-blend-mode: screen;
-    background-position: center;
-    padding: 16px 70px 16px 2px;
-    border-radius: 10px 100px 100px 10px;
-    box-shadow: inset 10px 10px 10px 10px #0b2e13;
-}
-
-/*
  * Кнопки генератора
  */
 #submit {
