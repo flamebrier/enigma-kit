@@ -3,56 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Supple - подари гибкий мозг!</title>
-    <!-- версия для разработки, отображает полезные предупреждения в консоли -->
+    <link rel="stylesheet" href="../css/commonStyle.css">
     <link rel="stylesheet" href="../css/genStyle.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
+<div id="sign" class="shine">
+    <a href="profile.html"><button>☻</button></a>
+    <a href="map.html"><button>🖺</button></a>
+</div>
 <nav>
     <ul>
-        <li><a class="tmp" href="#">Генератор</a></li>
+        <li class="tmp"><a href="#">Генератор</a></li>
         <li><a href="#">Лучшие киты</a></li>
         <li><a href="#">Головоломки</a></li>
         <li><a href="#">Случайный кит!</a></li>
     </ul>
 </nav>
 <main>
-    <form>
-        <label id="find">
-            <input type="search" placeholder="Введите ссылку на кит"/>
+    <form id="find">
+        <label>
+            <input type="url" placeholder="Введите ссылку на кит"/>
             <button>🔍</button>
         </label>
     </form>
-<header>
-    <h1><b>Генератор</b> - создай свой кит и отправь в подарок!</h1>
-</header>
+    <header>
+        <h1><b>Генератор</b> - создай свой кит и отправь в подарок!</h1>
+    </header>
     <div id="gen">
         <div class="enigma">
             <div class="arrow"><p>Этап 1</p></div>
-        <form>
-            <label>Название:
-                <select name="gen_name">
-                    <option>Пятнашки</option>
-                    <option>Виселица</option>
-                    <option>Шифрование перестановкой</option>
-                </select>
-            </label>
+            <form>
+                <label>Название:
+                    <select name="gen_name">
+                        <option>Пятнашки</option>
+                        <option>Виселица</option>
+                        <option>Шифрование перестановкой</option>
+                    </select>
+                </label>
 
-            <label class="gen-img"><a href="enigma/blocks.html"><img src="enigma/img/blocks.png"></a></label>
+                <label class="gen-img"><a href="enigma/blocks.html"><img src="enigma/img/blocks.png" alt="Пятнашки"></a></label>
+                <label><b>Описание: </b>
+                    классическая игра, выдающая после прохождения код для следующего задания. Результат, полученный до этого, влияет на количество пятнашек в наборе</label>
 
-            <label>Тип ключа:
-            <p><input name="gen-key" type="radio">Число
-            <input name="gen-key" type="radio">Цифры
-            <input name="gen-key" type="radio">Буквы</p>
-            </label>
 
-            <label> Сложность:
-            <input name="gen-difficulty" type="range" min="1" max="10" step="1" value="5">
-            </label>
+                <label>Тип ключа:
+                    <input name="gen-key" type="radio">Число
+                    <input name="gen-key" type="radio">Цифры
+                    <input name="gen-key" type="radio">Буквы
+                </label>
 
-            <label><b>Описание: </b>
-            классическая игра, выдающая после прохождения код для следующего задания. Результат, полученный до этого, влияет на количество пятнашек в наборе</label>
-        </form>
+                <label> Сложность:
+                    <input name="gen-difficulty" type="range" min="1" max="10" step="1" value="5">
+                </label>
+            </form>
         </div>
         <div class="enigma">
             <div class="arrow"><p>Этап 2</p></div>
@@ -65,19 +69,29 @@
                     </select>
                 </label>
 
-                <label class="gen-img"><a href="enigma/blocks.html"><img src="enigma/img/gallows.png"></a></label>
+                <label class="gen-img"><a href="enigma/blocks.html"><img src="enigma/img/gallows.png" alt="Виселица"></a></label>
+                <label><b>Описание: </b> нужно угадать слово определённой длины, выбирая по одной букве</label>
 
                 <label>Тип ключа:
-                    <p><input name="gen-key" type="radio">Число
-                        <input name="gen-key" type="radio">Цифры
-                        <input name="gen-key" type="radio">Буквы</p>
+                    <input name="gen-key" type="radio">Число
+                    <input name="gen-key" type="radio">Цифры
+                    <input name="gen-key" type="radio">Буквы
                 </label>
 
                 <label> Сложность:
                     <input name="gen-difficulty" type="range" min="1" max="10" step="1" value="5">
                 </label>
 
-                <label><b>Описание: </b> нужно угадать слово определённой длины, выбирая по одной букве</label></form>
+                <div class="gen-question">
+                    <label> Введите слово-ответ (5 букв):<br/>
+                        <input name="gen-answer" type="text" size="5" maxlength="5"/>
+                    </label>
+
+                    <label> Введите вопрос:<br/>
+                        <textarea name="gen-question" maxlength="250"></textarea>
+                    </label>
+                </div>
+            </form>
         </div>
         <div class="enigma">
             <div class="arrow"><p>Этап 3</p></div>
@@ -90,22 +104,33 @@
                     </select>
                 </label>
 
-                <label class="gen-img"><a href="enigma/blocks.html"><img src="enigma/img/no-photo.jpg"></a></label>
+                <label class="gen-img"><a href="enigma/blocks.html"><img src="enigma/img/no-photo.jpg" alt="Шифрование перестановкой"></a></label>
+                <label><b>Описание: </b> дан ключ из набора символов. Разгадайте с помощью него слово или предложение заданной длины, зашифрованное методом перестанови</label>
 
                 <label>Тип ключа:
-                    <p><input name="gen-key" type="radio">Число
-                        <input name="gen-key" type="radio">Цифры
-                        <input name="gen-key" type="radio">Буквы</p>
+                    <input name="gen-key" type="radio">Число
+                    <input name="gen-key" type="radio">Цифры
+                    <input name="gen-key" type="radio">Буквы
                 </label>
 
                 <label> Сложность:
                     <input name="gen-difficulty" type="range" min="1" max="10" step="1" value="5">
                 </label>
-
-                <label><b>Описание: </b> дан ключ из набора символов. Разгадайте с помощью него слово или предложение заданной длины, зашифрованное методом перестанови</label>
+            </form>
+        </div>
+        <div class="add">
+            <form>
+                <button type="button">
+                    +
+                </button>
             </form>
         </div>
     </div>
-    </main>
+    <div id="submit" class="shine" >
+        <button type="button" onclick="alert('Сохранено как черновик')">Черновик</button>
+        <button type="submit" onclick="alert('Поделиться')">Готово!</button>
+        <button type="reset">Отмена</button>
+    </div>
+</main>
 </body>
 </html>

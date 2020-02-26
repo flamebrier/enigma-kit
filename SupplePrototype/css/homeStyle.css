@@ -1,11 +1,3 @@
-@font-face {
-    font-family: Hobo; /* Гарнитура шрифта */
-    src: url(../fonts/Hobo.otf); /* Путь к файлу со шрифтом */
-}
-@font-face {
-    font-family: Candara; /* Гарнитура шрифта */
-    src: url(../fonts/Candara.ttf); /* Путь к файлу со шрифтом */
-}
 body {
     margin: 0;
     background-image: url("../img/bg_leaves2.jpg");
@@ -15,11 +7,10 @@ body {
     background-attachment: fixed;
     color: white;
     font-size: 1.3vmin;
-    font-family: Hobo, Candara, Arial, sans-serif ;
 }
 #home {
     background-image: url("../img/bg_seamless3.png");
-    border-radius: 40vw 40vw 20vw 20vw;
+    border-radius: 40vw 40vw 0 0;
     transition: all 1s ease-in-out;
     animation: fadein 1s;
     text-align: center;
@@ -30,11 +21,17 @@ body {
     margin: 0;
     font-size: 5em;
 }
+#home h1 b {
+    color: #e0a800;
+    font-family: Selima, sans-serif;
+    font-size: 2em;
+}
 #home h2 {
     margin-top: 1em;
     font-size: 2.3em;
     font-weight: 300;
-    font-family: Calibri, Arial, sans-serif;
+    font-family: SourceSansPro, Arial, sans-serif;
+    font-style: italic;
 }
 main {
     width: 60vw;
@@ -42,9 +39,9 @@ main {
     min-width: 300px;
     padding: 5vh 5vw;
     margin: 10vh auto;
-    border-top: 1.2vmax solid #e43f57;
-    border-left: 1.2vmax solid #e43f57;
-    border-right: 1.2vmax solid #e43f57;
+    border-top: 1.2vmax solid #e0a800;
+    border-left: 1.2vmax solid #e0a800;
+    border-right: 1.2vmax solid #e0a800;
     border-radius: 0 0 1.2vw 1.2vw;
 }
 @keyframes fadein {
@@ -56,34 +53,40 @@ main {
     }
 }
 
-#home nav {
+nav {
     padding-bottom: 2em;
     border-radius: 0 0 1.2vw 1.2vw;
-    border-bottom: 1.2vmax solid #e43f57;
+    border-bottom: 1.2vmax solid #e0a800;
     width: 90vw;
     max-width: 80vmax;
     min-width: 400px;
     margin: -8vmin auto;
+
+    background: none !important;
 }
-#home nav ul {
+nav ul:before {
+    display: none !important;
+}
+nav ul {
     list-style: none;
     margin: 0;
     padding-left: 0;
+    background: none !important;
 }
-#home nav li {
+nav li {
     display: inline-block;
     vertical-align:middle;
     padding: 2em 0;
 }
-#home nav li:after {
+nav li:after {
     content: "|";
     color: white;
     font-size: 3em;
     font-weight: 300;
     display: inline-block;
 }
-#home nav li:last-child:after {content: none;}
-#home nav a {
+nav li:last-child:after {content: none;}
+nav a {
     color: white;
     text-decoration: none;
     font-size: 2em;
@@ -94,7 +97,17 @@ main {
     border-right: 0.25em solid rgba(224,168,0,0);
     transition: all 0.5s ease-in-out;
 }
-#home nav a:hover{
+nav a:hover{
     border-left: 0.25em solid rgba(224,168,0,1);
     border-right: 0.25em solid rgba(224,168,0,1);
+}
+
+#find {
+    margin-top: -20%;
+    margin-bottom: 20%;
+    vertical-align: middle;
+}
+
+#find input {
+    color: white;
 }

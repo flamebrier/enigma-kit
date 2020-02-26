@@ -1,0 +1,264 @@
+@font-face {
+    font-family: Selima; /* Гарнитура шрифта */
+    src: url(../fonts/Selima.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+    font-family: SourceSansPro; /* Гарнитура шрифта */
+    src: url(../fonts/SourceSansPro-Regular.ttf); /* Путь к файлу со шрифтом */
+    font-style: normal;
+}
+@font-face {
+    font-family: SourceSansPro; /* Гарнитура шрифта */
+    src: url(../fonts/SourceSansPro-It.ttf); /* Путь к файлу со шрифтом */
+    font-style: italic;
+}
+@font-face {
+    font-family: SourceSansPro; /* Гарнитура шрифта */
+    src: url(../fonts/SourceSansPro-Light.ttf); /* Путь к файлу со шрифтом */
+    font-weight: 300;
+}
+@font-face {
+    font-family: SourceSansPro; /* Гарнитура шрифта */
+    src: url(../fonts/SourceSansPro-LightIt.ttf); /* Путь к файлу со шрифтом */
+    font-style: italic;
+    font-weight: 300;
+}
+@font-face {
+    font-family: SourceSansPro; /* Гарнитура шрифта */
+    src: url(../fonts/SourceSansPro-Bold.ttf); /* Путь к файлу со шрифтом */
+    font-style: normal;
+    font-weight: 600;
+}
+@font-face {
+    font-family: SourceSansPro; /* Гарнитура шрифта */
+    src: url(../fonts/SourceSansPro-Semibold.ttf); /* Путь к файлу со шрифтом */
+    font-style: normal;
+    font-weight: 500;
+}
+@font-face {
+    font-family: SourceSansPro; /* Гарнитура шрифта */
+    src: url(../fonts/SourceSansPro-SemiboldIt.ttf); /* Путь к файлу со шрифтом */
+    font-style: italic;
+    font-weight: 500;
+}
+html {
+    background-color: #f8f9fa;
+    font-family: SourceSansPro, Arial, sans-serif ;
+    color: #1b1e21;
+    font-size: 12px;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+@keyframes fadein {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+/**
+ * Меню
+ */
+nav {
+    background-image: url("../img/bg_leaves2.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    width:100%;
+    text-align: center;
+    border-bottom-left-radius: 100% 2vmax;
+    border-bottom-right-radius: 100% 2vmax;
+    overflow: hidden;
+    height: max-content;
+    transition: all 0.2s ease-in-out;
+}
+nav ul {
+    list-style: none;
+    margin: 0 auto;
+    padding-left: 0;
+    border-radius: 20%;
+}
+nav ul:before {
+    content: "Supple";
+    color: #e0a800;
+    font-family: Selima, sans-serif;
+    font-size: 5em;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    left: 0;
+    top:0;
+    text-transform: none;
+}
+nav ul {
+    background-image: url("../img/bg_seamless3.png");
+    list-style: none;
+    margin: 0 auto;
+    padding-left: 0;
+    border-radius: 20%;
+}
+nav li {
+    display: inline-block;
+    vertical-align:middle;
+}
+nav li:after {
+    content: "|";
+    color: white;
+    font-size: 2em;
+    font-weight: 300;
+    display: inline-block;
+}
+nav li:last-child:after {content: none;}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin: 1vh 1vw;
+    padding: 1vh 1vw;
+    border-radius: 1vmax;
+    border-left: 0.25em solid rgba(224,168,0,0);
+    border-right: 0.25em solid rgba(224,168,0,0);
+    transition: all 0.5s ease-in-out;
+}
+nav a:hover{
+    border-left: 0.25em solid rgba(224,168,0,1);
+    border-right: 0.25em solid rgba(224,168,0,1);
+}
+nav .tmp a {
+    color: rgba(224,168,0,1);
+}
+nav .tmp a:hover{
+    border-left: 0.25em solid rgba(224,168,0,0);
+    border-right: 0.25em solid rgba(224,168,0,0);
+}
+
+/*
+ * Строка для ссылки
+ */
+#find {
+    height: 2em;
+    margin-top: -1em;
+    margin-bottom: 1.5em;
+    width: 100%;
+}
+#find button{
+    vertical-align: top;
+    display: inline-block;
+    height: 3em;
+    border: 0;
+    background-color: transparent;
+    font-size: 2em;
+    margin-top: -0.5em;
+    transition: all 0.2s ease-in-out;
+}
+#find button:hover, #find button:active {
+    font-size: 4em;
+    margin-top: -1em;
+    margin-left: -0.5em;
+    background-color: transparent;
+    cursor: pointer;
+}
+#find input{
+    display: inline-block;
+    margin-left: 5%;
+
+    width: 85%;
+    height: 3em;
+    border: 0;
+    background-color: transparent;
+    font-size: 1.5em;
+    vertical-align: middle;
+}
+
+/*
+ * Заголовок раздела
+ */
+header {
+    color: white;
+    width: 100%;
+    padding-top: 0.5vh;
+    padding-bottom: 1vh;
+    text-align: center;
+    background-color: #e0a800;
+    border-top-left-radius: 100% 3vh;
+    border-bottom-right-radius: 100% 3vh;
+}
+header b {
+    font-size: 2.5em;
+}
+
+/*
+ * Панель пользователя
+ */
+#sign button {
+    position: fixed;
+    top: 15vh;
+    color: white;
+    text-decoration: none;
+    font-size: 50px;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #0b2e13;
+    background-image: url("../img/bg_seamless3.png");
+    background-attachment: fixed;
+    background-size: 25vmax;
+    background-blend-mode: screen;
+    transition: all 0.5s ease;
+
+    display: inline-block;
+    border: none;
+}
+#sign a:nth-child(1) button {
+    border-radius: 50% 0 0 50%;
+    margin-right: -2px;
+    right: 70px;
+}
+#sign a:nth-child(2) button {
+    right: 0;
+}
+
+/*
+ * Сияние кнопок
+ */
+.shine button:after {
+    content: "";
+    height: 400%;
+    left: -250%;
+    opacity: 0;
+    position: absolute;
+    top:200%;
+    transform: rotate(-30deg);
+    width: 200%;
+    background: rgba(255, 255, 255, 0.13);
+    background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.13) 0%,
+            rgba(255, 255, 255, 0.13) 77%,
+            rgba(255, 255, 255, 0.6) 92%,
+            rgba(255, 255, 255, 0.0) 100%
+    );
+}
+.shine button:hover{
+    cursor: pointer;
+}
+.shine button:hover:after {
+    left: -50%;
+    opacity: 1;
+    top: -100%;
+    transition-duration: 0.8s, 0.8s, 0.15s;
+    transition-property: left, top, opacity;
+    transition-timing-function: ease;
+}
+.shine button:active:after {
+    opacity: 0;
+}
+.shine button {
+    overflow: hidden;
+}
