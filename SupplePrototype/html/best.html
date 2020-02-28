@@ -7,19 +7,15 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-<div id="sign" class="shine">
-    <a href="profile.html"><button>☻</button></a>
-    <a href="map.html"><button>🖺</button></a>
-</div>
 <nav>
     <ul>
-        <li><a href="html/gen.html">Генератор</a></li>
+        <li><a href="gen.html">Генератор</a></li>
         <li><a class="tmp">Лучшие киты</a></li>
-        <li><a href="html/enigmas.html">Головоломки</a></li>
-        <li><a href="html/kit.html">Случайный кит!</a></li>
+        <li><a href="enigmas.html">Головоломки</a></li>
+        <li><a href="kit.html">Случайный кит!</a></li>
     </ul>
 </nav>
-<main>
+
     <form id="find">
         <label>
             <input type="url" placeholder="Введите ссылку на кит"/>
@@ -28,31 +24,77 @@
     </form>
     <header>
         <h1><b>Лучшие киты</b> - пройди, что сделали другие!</h1>
+        <div id="sign">
+            <a href="profile.html"><button>☻</button></a>
+            <a href="map.html"><button>🖺</button></a>
+        </div>
     </header>
-    <div id="content">
+<main>
         <div class="kit">
-            <div class="arrow"><p><a href="exec.html">Пройти!</a></p></div>
                 <div class="kitimg">
                     <img src="enigma/img/blocks.png" alt="Кит"/>
                 </div>
                 <div class="kitinfo">
-                    <p>
+                    <p class="name">
                         Ностальгический кит
                     </p>
-                    <p>
-                        <b>Автор:</b> Flamebrier
+                    <p class="author">
+                        <b>Автор:</b> <a href="profile/flamebrier.html">Flamebrier</a>
                     </p>
+                    <p>
+                        <b>Описание:</b> Кит из простых игр из детства и шифрования
+                    </p>
+                    <p>
+                        <b>Рейтинг:</b> ⭐⭐⭐⭐⭐
+                    </p>
+                    <div class="stages">
+                        <p class="s">Этап 1</p>
+                        <p class="n"><a href="blocks.html">Пятнашки</a> (сложность 5)</p>
+                        <p class="s">Этап 2</p>
+                        <p class="n"><a href="gallow.html">Виселица</a> (сложность 7)</p>
+                        <p class="s">Этап 3</p>
+                        <p class="n"><a href="replace.html">Шифрование перестановкой</a> (сложность 2)</p>
+                    </div>
                 </div>
-            <div class="kitbuttons shine">
-                <button><a href="#">⭐ В избранное</a></button>
-                <button onclick="alert('Поделиться')">Генерировать ссылку</button>
+            <div class="kitbuttons simple shine">
+                <button class="yellow small" onclick="alert('Добавлено в избранное')">⭐ В избранное</button>
+                <a href="enigma/blocks.html"><button class="grey small">✍ Отзывы</button></a>
+                <button class="green big" onclick="alert('Поделиться')">Генерировать ссылку</button>
+            </div>
+            <div class="arrow"><p><a href="exec.html">Пройти!</a></p></div>
+        </div>
+    <div class="kit">
+        <div class="kitimg">
+            <img src="enigma/img/gallows.png" alt="Кит"/>
+        </div>
+        <div class="kitinfo">
+            <p class="name">
+                Супер-сложный кит
+            </p>
+            <p class="author">
+                <b>Автор:</b> <a href="profile/arvyb.html">ArvyB</a>
+            </p>
+            <p>
+                <b>Описание:</b> Кит для тех, кто хочет долго думать
+            </p>
+            <p>
+                <b>Рейтинг:</b> ⭐⭐⭐⭐⭐
+            </p>
+            <div class="stages">
+                <p class="s">Этап 1</p>
+                <p class="n"><a href="enigma/replace.html">Шифрование перестановкой</a> (сложность 10)</p>
+                <p class="s">Этап 2</p>
+                <p class="n"><a href="enigma/blocks.html">Пятнашки</a> (сложность 10)</p>
+                <p class="s">Этап 3</p>
+                <p class="n"><a href="enigma/gallows.html">Виселица</a> (сложность 10)</p>
             </div>
         </div>
-    </div>
-    <div id="submit" class="shine" >
-        <button type="button" onclick="alert('Сохранено как черновик')">Черновик</button>
-        <button type="submit" onclick="alert('Поделиться')">Готово!</button>
-        <button type="reset">Отмена</button>
+        <div class="kitbuttons simple shine">
+            <button class="yellow small" onclick="alert('Добавлено в избранное')">⭐ В избранное</button>
+            <a href="enigma/gallows.html"><button class="grey small">✍ Отзывы</button></a>
+            <button class="green big" onclick="alert('Поделиться')">Генерировать ссылку</button>
+        </div>
+        <div class="arrow"><p><a href="exec.html">Пройти!</a></p></div>
     </div>
 </main>
 </body>

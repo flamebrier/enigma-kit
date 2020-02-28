@@ -111,3 +111,19 @@ nav a:hover{
 #find input {
     color: white;
 }
+
+/*
+ * Панель пользователя
+ */
+#sign {
+    position: absolute;
+    right: 0;
+    top:0;
+    display: inline-block;
+    float: right;
+    text-align: center;
+    width: 15vmin;
+}
+#sign button {
+    font-size: 5vmin;
+}
