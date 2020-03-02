@@ -176,24 +176,24 @@ nav a {
     font-size: 1.8em;
     text-transform: uppercase;
     font-weight: 300;
-    margin: 1vh 1vw;
-    padding: 1vh 1vw;
-    border-radius: 1vmax;
+    margin: 1vh  0.25vw;
+    padding: 1vh 0.25vw;
     border-left: 0.25em solid rgba(224, 168, 0, 0);
     border-right: 0.25em solid rgba(224, 168, 0, 0);
     transition: all 0.5s ease-in-out;
 }
 
 nav a:hover {
+    border-radius: 1vmax;
     border-left: 0.25em solid rgba(224, 168, 0, 1);
     border-right: 0.25em solid rgba(224, 168, 0, 1);
 }
 
-nav .tmp a {
+nav .tmp {
     color: rgba(224, 168, 0, 1);
 }
 
-nav .tmp a:hover {
+nav .tmp:hover {
     border-left: 0.25em solid rgba(224, 168, 0, 0);
     border-right: 0.25em solid rgba(224, 168, 0, 0);
 }
@@ -366,7 +366,7 @@ header b {
 }
 
 /*
- * Стрелки этапов
+ * Стрелки кита
  */
 .kit .arrow:before {
     width: 0;
@@ -388,8 +388,8 @@ header b {
     position: absolute;
     left: 60px;
     font-size: 0;
-    margin-top: -60px;
-    margin-left: -40px;
+    margin-top: -80px;
+    margin-left: 0;
     transition: all 0.4s ease-in-out;
 }
 
@@ -424,7 +424,6 @@ header b {
     border-radius: 10px 100px 100px 10px;
     box-shadow: inset 10px 10px 10px 10px #28a745;
 }
-
 .kit .arrow a {
     text-decoration: none;
     border-bottom: none;
@@ -434,9 +433,11 @@ header b {
     padding: 30px 70px 30px 55px;
     border-radius: 10px 100px 100px 10px;
 }
-
 .kit .arrow:hover {
-    margin-left: 20px;
+    margin-left: 40px;
+}
+.kit .arrow a:hover {
+    color:white;
 }
 
 /* ------------------------
@@ -445,60 +446,93 @@ header b {
 main {
     padding: 2%;
     width: 96%;
-    display: block;
+    display: grid;
+}
+@media only screen and (min-width: 800px) {
+    .kit {
+        column-count: 3;
+        display: inline-flex;
+    }
+    .kit .img, .kit .info, .kit .buttons {
+        display: inline-block;
+        min-width: 25%;
+    }
+    .kit .img, .kit .info {
+        margin-right: 20px;
+        vertical-align: middle;
+        max-width: max-content;
+    }
+}
+@media only screen and (max-width: 650px) {
+    .kit .img, .kit .info {
+        display: block;
+        width: 98%;
+        vertical-align: middle;
+    }
+    .kit .buttons {
+        display: block;
+    }
+}
+@media only screen and (min-width: 650px) {
+    .kit .img, .kit .info {
+        display: inline-block;
+        max-width: 45%;
+        margin-right: 20px;
+        vertical-align: middle;
+    }
+    .kit .buttons {
+        display: block;
+    }
 }
 .kit {
     background-color: white;
     border: 1px solid lightgrey;
     border-radius: 1em;
-    padding: 1%;
-    margin: 2vh 0;
-    display: inline-flex;
-    width: 98%;
+    padding: 20px;
+    margin: 2vh auto;
     white-space: normal;
     overflow-x: auto;
+    width: 90%;
 }
-.kitimg, .kitinfo, .kitbuttons {
-    margin-right: 1%;
-    vertical-align: top;
+.kit .img, .kit .info, .kit .buttons {
     margin-left: auto;
 }
-.kitbuttons {
-    max-width: 30%;
-    min-width: 200px;
-}
-.kitbuttons button{
-    font-size: 1.7em;
-    margin: 5px;
-    width: 100%;
-    min-width: min-content;
-}
-.kitimg {
-    min-width: max-content;
-    max-width: 30%;
+.kit .img {
     text-align: center;
 }
-.kitimg img {
-    max-width: max-content;
+.kit .img img {
     max-height: 30vh;
     border-radius: 10px;
+    width: auto;
+    max-width: 100%;
 }
-.kitinfo .stages p {
+.kit .info {
+    min-width: min-content;
+}
+.kit .info .name {
+    font-size: xx-large;
+    margin: 0;
+}
+.kit .info .author {
+    text-align: right;
+    font-style: italic;
+}
+.kit .info .stages p {
     margin: 0;
     white-space: normal;
     display: block;
 }
-.kitinfo .stages .s {
+.kit .info .stages .s {
     font-weight: 600;
     width: 20%;
     margin-right: 1em;
     white-space: nowrap;
 }
-.kitinfo .stages .n {
+.kit .info .stages .n {
     min-width: min-content;
     width: 70%;
 }
-.kitinfo .stages .s:after {
+.kit .info .stages .s:after {
     content: " → ";
     position: relative;
     margin-left: 50%;
@@ -506,15 +540,13 @@ main {
     display: inline-block;
     font-size: 2em;
 }
-.kitinfo .stages .s, .kitinfo .stages .n {
+.kit .info .stages .s, .kit .info .stages .n {
     display: inline-block;
     vertical-align: middle;
 }
-.kitinfo .name {
-    font-size: xx-large;
-    margin: 0;
-}
-.kitinfo .author {
-    text-align: right;
-    font-style: italic;
+.kit .buttons button {
+    font-size: 1.7em;
+    margin: 5px 0;
+    width: 100%;
+    min-width: min-content;
 }

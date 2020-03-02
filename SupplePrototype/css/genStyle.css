@@ -13,6 +13,7 @@
 main {
     padding: 0;
     width: auto;
+    display: block !important;
 }
 /*
  * Добавить карточку
