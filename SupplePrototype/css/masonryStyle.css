@@ -70,19 +70,14 @@
     min-width: min-content;
 }
 .enigma .img {
-    min-width: max-content;
     text-align: center;
 }
 .enigma .img img {
-    max-width: max-content;
+    max-width: 100%;
     max-height: 30vh;
     border-radius: 10px;
 }
 .enigma .info .name {
     font-size: xx-large;
     margin: 0;
-}
-.enigma .info .author {
-    text-align: right;
-    font-style: italic;
 }

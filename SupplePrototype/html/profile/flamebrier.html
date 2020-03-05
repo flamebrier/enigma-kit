@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Supple - подари гибкий мозг!</title>
+    <link rel="stylesheet" href="../../css/commonStyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="../gen.html">Генератор</a></li>
+        <li><a href="../best.html">Лучшие киты</a></li>
+        <li><a href="../enigmas.html">Головоломки</a></li>
+        <li><a href="../exec.html">Случайный кит!</a></li>
+    </ul>
+</nav>
+
+<form id="find">
+    <label>
+        <input type="url" placeholder="Введите ссылку на кит"/>
+        <button>🔍</button>
+    </label>
+</form>
+<header>
+    <h1><b>Профиль пользователя</b></h1>
+    <div id="sign">
+        <a href="../profile/flamebrier.html"><button>☻</button></a>
+        <a href="../map.html"><button>🖺</button></a>
+    </div>
+</header>
+<main id="profile">
+    <div class="mini-menu">
+        <ul>
+            <li><a href="#" onclick="alert('Выход из аккаунта')">Выйти из аккаунта</a></li>
+        </ul>
+    </div>
+    <img src="../../img/ava/flamebrier.jpg" alt="flamebrier">
+    <form method="post" action="" class="simple shine">
+        <label><b>Логин</b>
+            <input type="text" name="name" value="flamebrier" required></label>
+        <label><b>E-mail:</b>
+            <input type="email" name="email" value="79209236414@ya.ru" required></label>
+        <br/>
+        <label><b>Новый пароль: </b>
+            <input type="password" placeholder="Введите пароль" name="psw"></label>
+        <label><b>Повторите пароль: </b>
+            <input type="password" placeholder="Повторите пароль" name="psw-repeat"></label>
+        <br/>
+        <label><b>Пол:</b>
+            <input type="radio" name="sex" value="мужской">мужской
+            <input type="radio" name="sex" value="женский">женский
+            <input type="radio" name="sex" value="не определено" checked>не определено
+        </label>
+        <label><b>Город: </b>
+            <input type="text" name="name" value="Владимир"></label>
+        <br/>
+        <label><b>Загрузите аватар: </b><input type="file" name="ava"></label>
+        <br/>
+        <button type="submit" class="green">Сохранить</button>
+    </form>
+</main>
+</body>
+</html>

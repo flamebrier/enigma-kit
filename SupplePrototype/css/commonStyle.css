@@ -365,6 +365,11 @@ header b {
     opacity: 0;
 }
 
+.simple button a:link {
+    color: #1b1e21;
+    text-decoration: none;
+}
+
 /*
  * Стрелки кита
  */
@@ -549,4 +554,159 @@ main {
     margin: 5px 0;
     width: 100%;
     min-width: min-content;
+}
+
+/**
+ * Панель пользователя
+ */
+#map {
+    display: block;
+    width: auto;
+    margin: 0;
+}
+.map {
+    display: inline-block;
+    vertical-align: top;
+}
+.user {
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 1em;
+    padding: 20px;
+    margin: 4vh 1vw;
+    white-space: normal;
+    max-width: 300px;
+    min-width: min-content;
+    text-align: center;
+    display: inline-block;
+}
+.user img {
+    border-radius: 100% 100%;
+    width: 100%;
+}
+.user h1 {
+    text-align: left;
+    color: #28a745;
+}
+.user p {
+    text-align: left;
+    width: 100%;
+}
+.user b {
+    text-align: left;
+    width: 60%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.user button {
+    margin: 0 auto;
+}
+@media only screen and (min-width: 800px) {
+    .map {
+        width: 70%;
+        margin: 2vh 0;
+    }
+    .user {
+        width: 23%;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .map {
+        width: 70%;
+        margin: 2vh 0;
+    }
+    .user {
+        width: 25%;
+    }
+}
+@media only screen and (min-width: 450px) {
+    .map {
+        width: 60%;
+        margin: 2vh 0;
+    }
+    .user {
+        width: 30%;
+    }
+}
+@media only screen and (min-width: 1000px) {
+    .map {
+        width: 70%;
+        margin: 2vh 0;
+    }
+    .user {
+        width: 15%;
+    }
+}
+@media only screen and (min-width: 1500px) {
+    .map .kit {
+        width: 84%;
+        margin: 2vh 0;
+    }
+    .user {
+        width: 15%;
+    }
+}
+
+.mini-menu {
+    width: 100%;
+    text-align: center;
+}
+.mini-menu li {
+    display: inline-block;
+    font-size: 1.5em;
+    color: #e0a800;
+    font-family: SourceSansPro, sans-serif;
+    padding: 10px;
+}
+.mini-menu a:link {
+    color: darkslategray;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+    padding: 0 3px;
+}
+.mini-menu a:hover {
+    color: #e0a800;
+    border-radius: 10px;
+    border-top: 2px solid #e0a800;
+}
+.mini-menu a:active {
+    color: #cab701;
+    border-top: 2px solid #cab701;
+}
+.mini-menu a:visited {
+    color: #4e555b;
+    border-top: 1px solid  #e0a800;
+}
+.mini-menu a:visited:hover {
+    color: #e0a800;
+    border-radius: 10px;
+    border-top: 2px solid #e0a800;
+}
+
+
+/*
+* Редактирование профиля
+ */
+#profile {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+}
+#profile form {
+    width: 75%;
+    display: inline-block;
+}
+#profile label {
+    display: block;
+    padding: 5px 15px;
+}
+#profile b {
+    width: 200px;
+    display: inline-block;
+}
+#profile img {
+    display: inline-block;
+    width: 24%;
+    border-radius: 100% 100%;
+    vertical-align: top;
 }
