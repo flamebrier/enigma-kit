@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    background-image: url("../img/bg_leaves2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+    color: white;
+    font-size: 1.3vmin;
+}
+#home {
+    background-image: url("../img/bg_seamless3.png");
+    border-radius: 40vw 40vw 0 0;
+    transition: all 1s ease-in-out;
+    animation: fadein 1s;
+    text-align: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+#home h1 {
+    margin: 0;
+    font-size: 5em;
+}
+#home h1 b {
+    color: #e0a800;
+    font-family: Selima, sans-serif;
+    font-size: 2em;
+}
+#home h2 {
+    margin-top: 1em;
+    font-size: 2.3em;
+    font-weight: 300;
+    font-family: SourceSansPro, Arial, sans-serif;
+    font-style: italic;
+}
+main {
+    width: 60vw;
+    max-width: 60vh;
+    min-width: 300px;
+    padding: 5vh 5vw;
+    margin: 10vh auto;
+    border-top: 1.2vmax solid #e0a800;
+    border-left: 1.2vmax solid #e0a800;
+    border-right: 1.2vmax solid #e0a800;
+    border-radius: 0 0 1.2vw 1.2vw;
+}
+@keyframes fadein {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+#nav {
+    padding-bottom: 2em;
+    border-radius: 0 0 1.2vw 1.2vw;
+    border-bottom: 1.2vmax solid #e0a800;
+    width: 90vw;
+    max-width: 80vmax;
+    min-width: 400px;
+    margin: -8vmin auto;
+
+    background: none !important;
+}
+#nav ul:before {
+    display: none !important;
+}
+#nav ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    background: none !important;
+}
+#nav li {
+    display: inline-block;
+    vertical-align:middle;
+    padding: 2em 0;
+}
+#nav li:after {
+    content: "|";
+    color: white;
+    font-size: 3em;
+    font-weight: 300;
+    display: inline-block;
+}
+#nav li:last-child:after {content: none;}
+#nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 2em;
+    margin: 0 1em 0 1em ;
+    padding: 1em;
+    border-radius: 1vmax 1vmax 1vmax 1vmax;
+    border-left: 0.25em solid rgba(224,168,0,0);
+    border-right: 0.25em solid rgba(224,168,0,0);
+    transition: all 0.5s ease-in-out;
+}
+#nav a:hover{
+    border-left: 0.25em solid rgba(224,168,0,1);
+    border-right: 0.25em solid rgba(224,168,0,1);
+}
+
+#find {
+    margin-top: -20%;
+    margin-bottom: 20%;
+    vertical-align: middle;
+    background-color: transparent !important;
+}
+
+#find input {
+    color: white;
+}
+
+/*
+ * Панель пользователя
+ */
+#sign {
+    position: absolute;
+    right: 0;
+    top:0;
+    display: inline-block;
+    float: right;
+    text-align: center;
+    width: 15vmin;
+}
+#sign button {
+    font-size: 5vmin;
+}

@@ -1,0 +1,214 @@
+/*--------------------------
+ * ГЕНЕРАТОР НАЧАЛО
+ ---------------------------*/
+#gen {
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    vertical-align: top;
+    padding: 0 2vw 0 2vw;
+    margin-bottom: 6vh;
+    margin-top: -1vh;
+}
+main {
+    padding: 0;
+    width: auto;
+    display: block !important;
+}
+/*
+ * Добавить карточку
+ */
+.add {
+    display: inline-block;
+    margin-bottom: -15vh;
+    margin-left: 1vmax;
+    margin-right: 1vmax;
+}
+.add button {
+    display: block;
+    font-size: 70px;
+    width: 100px;
+    padding: 0;
+    margin: 1vmax;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    background-color: #e0a800;
+    border: 1px solid #e0a800;
+    border-radius: 10px;
+    float: left;
+    transition: all 0.2s ease-out;
+}
+
+.add button:hover {
+    background-color: rgba(225,187,0,0.75)
+}
+.about {
+    width: 100%;
+}
+.about b {
+    width: 15%;
+    display: inline-block;
+    vertical-align: top;
+}
+.about input, .about textarea {
+    width: 80%;
+    display: inline-block;
+}
+.about label {
+    margin: 5px;
+}
+
+/*
+ * Стрелки этапов
+ */
+.arrow:before {
+    width: 0;
+    height: 0;
+    font-size: 0;
+    content: "";
+    border: 30px solid;
+    border-color: #0b2e13 #0b2e13 #0b2e13 transparent;
+    border-radius: 10px 0 0 10px;
+    position: relative;
+    left: -60px;
+    top: 30px;
+}
+
+.arrow {
+    width: 30px;
+    height: 60px;
+    background-color: #0b2e13;
+    position: relative;
+    left: 30px;
+    margin-bottom: -50px;
+    font-size: 0;
+}
+
+.arrow:after {
+    width: 0;
+    height: 0;
+    font-size: 0;
+    content: "";
+    border: 30px solid;
+    border-color: transparent transparent transparent #0b2e13;
+    position: relative;
+    left: 30px;
+    bottom: 70px;
+}
+
+.arrow p {
+    color: white;
+    text-decoration: none;
+    z-index: 1000;
+    white-space: nowrap;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: italic;
+    margin-left: -30px;
+    position: relative;
+    top: -20px;
+
+    background-color: #0b2e13;
+    background-image: url("../img/bg_seamless3.png");
+    background-size: 25vmin;
+    background-attachment: fixed;
+    background-blend-mode: screen;
+    background-position: center;
+    padding: 16px 70px 15px 2px;
+    border-radius: 10px 100px 100px 10px;
+    box-shadow: inset 10px 10px 10px 10px #0b2e13;
+}
+
+/*
+ * Карточка
+ */
+.enigma {
+    display: inline-block;
+}
+.enigma form {
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 1em;
+    margin: 20px 1vmin 0;
+    padding: 10px;
+    white-space: normal;
+    min-height: 400px;
+    width: 300px;
+    vertical-align: top;
+    float: right;
+}
+.enigma label {
+    display: block;
+    margin: 1em;
+}
+.enigma .gen-img {
+    text-align: center;
+}
+.enigma img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    border-radius: 1em;
+    transition: all .2s ease;
+}
+.enigma img:hover {
+    opacity: 0.7;
+}
+.enigma input[type=range] {
+    width: 100%;
+}
+.enigma textarea {
+    width: 100%;
+    max-width: 100%;
+}
+
+/*
+ * Кнопки генератора
+ */
+#submit {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: -2vh;
+    transition: all 0.2s ease-in;
+    margin-left: auto;
+    margin-right: auto;
+}
+#submit:hover {
+    bottom: 0;
+}
+#submit button{
+    height: 7vh;
+    min-height: 50px;
+    width: 20vw;
+    max-width: 300px;
+    min-width: min-content;
+    padding: 2vh 2vw;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+
+    border: none;
+    background-image: url("../img/bg_seamless3.png");
+    background-size: 25vmin;
+    background-attachment: fixed;
+    background-blend-mode: screen;
+
+    transition: font-weight 0.2s ease-in-out;
+}
+#submit button:hover {
+    font-weight: 600;
+}
+#submit button:nth-child(1) {
+    border-radius: 2vmax 0 0 0;
+    margin-right: -5px;
+}
+#submit button:nth-child(3) {
+    border-radius: 0 2vmax 0 0;
+    margin-left: -5px;
+}
+/*--------------------------
+ * КОНЕЦ ГЕНЕРАТОР
+ ---------------------------*/

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="navigation">
+    <nav id="nav">
+        <ul>
+            <li><a th:href="@{/kit/generator}">Генератор</a></li>
+            <li><a th:href="@{/kit/best}">Лучшие киты</a></li>
+            <li><a th:href="@{/enigma/all}">Головоломки</a></li>
+            <li><a href="/exec.html">Случайный кит!</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div th:fragment="sign">
+    <div id="sign">
+        <a th:href="@{/profile}"><button>☻</button></a>
+        <a th:href="@{/kit/map}"><button>🖺</button></a>
+    </div>
+</div>
+
+</body>
+</html>

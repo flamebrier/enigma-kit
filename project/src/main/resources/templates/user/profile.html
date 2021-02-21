@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Supple - подари гибкий мозг!</title>
+    <link rel="stylesheet" href="/css/commonStyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div th:replace="~{fragments/header :: navigation}"></div>
+
+<header>
+    <h1><b>Профиль пользователя</b></h1>
+    <div th:replace="~{fragments/header :: sign}"></div>
+</header>
+<main id="profile">
+    <div class="mini-menu">
+        <ul>
+            <li><a href="/logout" onclick="alert('Выход из аккаунта')">Выйти из аккаунта</a></li>
+        </ul>
+    </div>
+    <!--<img th:attr="src=${userForm.photoLink}" alt="flamb" />-->
+    <!--<img th:src="@{/getPhoto(photoLink=${userForm.photoLink})}">-->
+    <img th:src="@{'data:image/jpg;base64,' + ${ava}}">
+    <form enctype="multipart/form-data" method="post" th:action="@{/user/update}" th:object="${userForm}" class="simple shine">
+        <label><b>Логин</b>
+            <input type="text" name="username" th:value="${userForm.username}" disabled></label>
+        <label><b>Новый пароль: </b>
+            <input type="password" placeholder="Введите пароль" name="password"></label>
+        <label><b>Повторите пароль: </b>
+            <input type="password" placeholder="Повторите пароль" name="passwordConfirm"></label>
+        <br/>
+        <label><b>Загрузите аватар: </b><input type="file" name="ava"></label>
+        <span th:text="${nonDataError}" style="color: #d3101f">No data error</span>
+        <br/>
+        <button type="submit" class="green">Сохранить</button>
+    </form>
+</main>
+</body>
+</html>
