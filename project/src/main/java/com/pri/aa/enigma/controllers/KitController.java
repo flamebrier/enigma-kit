@@ -6,18 +6,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class KitController {
 
-    @GetMapping("/kit/generator")
+    @GetMapping("kit/generator")
     public String getGenView() {
-        return "/kit/generator";
+        return "kit/generator";
     }
 
-    @GetMapping("/kit/map")
+    @GetMapping("kit/map")
     public String getKitMapView() {
-        return "/kit/map";
+        return "kit/map";
     }
 
-    @GetMapping("/kit/best")
+    @GetMapping("kit/best")
     public String getKitBestView() {
-        return "/kit/best";
+        return "kit/best";
+    }
+
+    @GetMapping("kit/random")
+    public String getKitRandom() {
+        return "kit/random";
     }
 }

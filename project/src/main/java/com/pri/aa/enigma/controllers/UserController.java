@@ -34,13 +34,13 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/profile")
+    @GetMapping("profile")
     public String getPersonalView(Principal principal, Model model) {
         User curUser = userService.findByUsername(principal.getName());
         model.addAttribute("userForm", curUser);
         model.addAttribute("ava",
                 getPhotoBase64(curUser.getPhotoLink()).orElse("no photo"));
-        return "/user/profile";
+        return "user/profile";
     }
 
     @GetMapping(value = "/getPhoto",
@@ -72,7 +72,7 @@ public class UserController {
         return image;
     }
 
-    @PostMapping("/user/update")
+    @PostMapping("user/update")
     public String updateUser(User newUser, Principal principal,
                              @RequestParam("ava")MultipartFile file,
                              Model model) throws IOException {
@@ -83,7 +83,7 @@ public class UserController {
             model.addAttribute("nonDataError", "Нет данных для обновления");
             User curUser = userService.findByUsername(principal.getName());
             model.addAttribute("userForm", curUser);
-            return "/user/profile";
+            return "user/profile";
         }
 
         if (!newUser.getPassword().isBlank() &&
@@ -112,13 +112,13 @@ public class UserController {
         return "redirect:/profile";
     }
 
-    @GetMapping("/registration")
+    @GetMapping("registration")
     public String getRegistrForm(Model model) {
         model.addAttribute("userForm", new User());
-        return "/user/registration";
+        return "user/registration";
     }
 
-    @PostMapping("/registration")
+    @PostMapping("registration")
     public String registerUser(@ModelAttribute("userForm") @Valid User userForm,
                                BindingResult bindingResult, Model model) {
         boolean hasErrors = false;
@@ -138,14 +138,14 @@ public class UserController {
         }
 
         if (hasErrors) {
-            return "/user/registration";
+            return "user/registration";
         }
         userService.save(userForm);
         return "redirect:/";
     }
 
-    @GetMapping("/login")
+    @GetMapping("login")
     public String getLoginView() {
-        return "/user/login";
+        return "user/login";
     }
 }

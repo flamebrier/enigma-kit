@@ -1,4 +1,7 @@
-FROM openjdk:11.0.8-jre
+FROM openjdk:11.0.10-jre
 COPY target/enigma.jar enigma.jar
-EXPOSE 8099
-ENTRYPOINT ["java", "-jar", "enigma.jar"]
+COPY src/main/resources/static/img/ava/nophoto.png src/main/resources/static/img/ava/nophoto.png
+COPY startscript.sh startscript.sh
+RUN chmod +rx startscript.sh
+CMD ["./startscript.sh"]
+#ENTRYPOINT ["java", "-jar", "/enigma.jar"]

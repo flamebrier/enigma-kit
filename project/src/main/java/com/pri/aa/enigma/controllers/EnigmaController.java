@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class EnigmaController {
 
-    @GetMapping("/enigma/all")
+    @GetMapping("enigma/all")
     public String getAllEnigmaView() {
-        return "/enigma/all";
+        return "enigma/all";
     }
 
-    @GetMapping("/enigma/create")
+    @GetMapping("enigma/create")
     public String getCreateEnigmaView() {
-        return "/enigma/create";
+        return "enigma/create";
     }
 }
