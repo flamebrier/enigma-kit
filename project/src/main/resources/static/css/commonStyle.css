@@ -296,11 +296,17 @@ header b {
     border: none;
     background-color: transparent;
 }
+
 #sign button:hover {
     transform: rotate(-30deg);
 }
+
 #sign button:active {
     transform: rotate(30deg);
+}
+
+#sign button img {
+    width: 36px;
 }
 
 /*
@@ -310,6 +316,7 @@ header b {
     color: #1b1e21;
     background-color: #cab701;
 }
+
 .green {
     background-color: #0b2e13;
     color: white;

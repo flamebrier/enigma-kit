@@ -18,4 +18,4 @@ services:
       context: .
       dockerfile: ./docker/jre/Dockerfile
     ports:
-    - 8080:8080
+      - 8080:8080

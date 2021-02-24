@@ -4,48 +4,42 @@
     <meta charset="UTF-8">
     <title>Supple - подари гибкий мозг!</title>
     <link rel="stylesheet" href="../css/commonStyle.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 </head>
 <body>
 
 <div th:replace="~{fragments/header :: navigation}"></div>
 
-<form id="find">
-    <label>
-        <input type="url" placeholder="Введите ссылку на кит"/>
-        <button>🔍</button>
-    </label>
-</form>
+<div th:replace="~{fragments/header :: find}"></div>
+
 <header>
     <h1><b>Лучшие киты</b> - пройди, что сделали другие!</h1>
     <div th:replace="~{fragments/header :: sign}"></div>
 </header>
 <main>
     <div class="kit">
-        <div class="arrow"><p><a href="exec.html">Пройти!</a></p></div>
+        <div class="arrow"><p><a th:href="@{/kit/exec}">Пройти!</a></p></div>
         <div class="img">
-            <img src="enigma/img/blocks.png" alt="Кит"/>
+            <img alt="Кит" th:src="@{/img/enigma/blocks.png}"/>
         </div>
         <div class="info">
             <p class="name">
                 Ностальгический кит
             </p>
             <p class="author">
-                <b>Автор:</b> <a href="profile/flamebrier.html">Flamebrier</a>
+                <b>Автор:</b> <a th:href="@{/profile}">Flamebrier</a>
             </p>
             <p>
                 <b>Описание:</b> Кит из простых игр из детства и шифрования
             </p>
-            <p>
-                <b>Рейтинг:</b> ⭐⭐⭐⭐⭐
-            </p>
+
             <div class="stages">
                 <p class="s">Этап 1</p>
-                <p class="n"><a href="enigma/blocks.html">Пятнашки</a> (сложность 5)</p>
+                <p class="n"><a th:href="@{/kit/game}">Пятнашки</a> (сложность 5)</p>
                 <p class="s">Этап 2</p>
-                <p class="n"><a href="enigma/gallows.html">Виселица</a> (сложность 7)</p>
+                <p class="n"><a th:href="@{/kit/game}">Виселица</a> (сложность 7)</p>
                 <p class="s">Этап 3</p>
-                <p class="n"><a href="enigma/replace.html">Шифрование перестановкой</a> (сложность 2)</p>
+                <p class="n"><a th:href="@{/kit/game}">Шифрование перестановкой</a> (сложность 2)</p>
             </div>
         </div>
         <div class="buttons simple shine">
@@ -54,30 +48,28 @@
         </div>
     </div>
     <div class="kit">
-        <div class="arrow"><p><a href="exec.html">Пройти!</a></p></div>
+        <div class="arrow"><p><a th:href="@{/kit/exec}">Пройти!</a></p></div>
         <div class="img">
-            <img src="enigma/img/gallows.png" alt="Кит"/>
+            <img alt="Кит" th:src="@{/img/enigma/gallows.png}"/>
         </div>
         <div class="info">
             <p class="name">
                 Супер-сложный кит
             </p>
             <p class="author">
-                <b>Автор:</b> <a href="profile/arvyb.html">ArvyB</a>
+                <b>Автор:</b> <a th:href="@{/profile}">ArvyB</a>
             </p>
             <p>
                 <b>Описание:</b> Кит для тех, кто хочет долго думать
             </p>
-            <p>
-                <b>Рейтинг:</b> ⭐⭐⭐⭐⭐
-            </p>
+
             <div class="stages">
                 <p class="s">Этап 1</p>
-                <p class="n"><a href="enigma/replace.html">Шифрование перестановкой</a> (сложность 10)</p>
+                <p class="n"><a th:href="@{/kit/game}">Шифрование перестановкой</a> (сложность 10)</p>
                 <p class="s">Этап 2</p>
-                <p class="n"><a href="enigma/blocks.html">Пятнашки</a> (сложность 10)</p>
+                <p class="n"><a th:href="@{/kit/game}">Пятнашки</a> (сложность 10)</p>
                 <p class="s">Этап 3</p>
-                <p class="n"><a href="enigma/gallows.html">Виселица</a> (сложность 10)</p>
+                <p class="n"><a th:href="@{/kit/game}">Виселица</a> (сложность 10)</p>
             </div>
         </div>
         <div class="buttons simple shine">

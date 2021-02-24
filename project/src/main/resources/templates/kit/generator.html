@@ -1,85 +1,120 @@
 <!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Supple - подари гибкий мозг!</title>
-    <link type="text/css" rel="stylesheet" th:href="@{/css/commonStyle.css}">
-    <link type="text/css" rel="stylesheet" th:href="@{/css/genStyle.css}">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="../css/commonStyle.css">
+    <link rel="stylesheet" href="../css/genStyle.css">
+
 </head>
 <body>
 
 <div th:replace="~{fragments/header :: navigation}"></div>
 
-<form id="find">
-    <label>
-        <input type="url" placeholder="Введите ссылку на кит"/>
-        <button>🔍</button>
-    </label>
-</form>
+<div th:replace="~{fragments/header :: find}"></div>
 <header>
     <h1><b>Генератор</b> - создай свой кит и отправь в подарок!</h1>
     <div th:replace="~{fragments/header :: sign}"></div>
 </header>
 <main>
-    <form action="/kit/save" method="post" th:object="${kit}">
-    <!--<form class="about">-->
+    <form class="about">
         <label>
             <b>Название:</b>
-            <input th:field="*{name}" type="text" maxlength="150" placeholder="Название кита">
+            <input type="text" maxlength="150" placeholder="Название кита">
         </label>
         <br/><br/>
         <label>
             <b>Описание кита:</b>
-            <textarea th:field="*{description}" maxlength="250">
-            </textarea>
+            <textarea maxlength="250">
+</textarea>
         </label>
-    <!--</form>-->
+    </form>
     <br/>
     <div id="gen">
-        <div th:each="enigma, iter : ${kit.enigmas}" class="enigma">
-            <div class="arrow"><p th:utext="${'Этап ' + iter.count}"></p></div>
-            <div id="custform">
-                <div th:replace="fragments/selector :: enigma-type"></div>
+        <div class="enigma">
+            <div class="arrow"><p>Этап 1</p></div>
+            <form>
 
-                <label class="gen-img"><a href="enigma/blocks.html"><img src="/img/enigma/blocks.png" alt="Пятнашки"></a></label>
+                <div th:replace="~{fragments/selector :: enigma-type}"></div>
+
+                <label class="gen-img"><a th:href="@{/kit/game}"><img alt="Пятнашки" th:src="@{/img/enigma/blocks.png}"></a></label>
                 <label><b>Описание: </b>
                     классическая игра, выдающая после прохождения код для следующего задания. Результат, полученный до этого, влияет на количество пятнашек в наборе</label>
 
-                <div th:replace="fragments/selector :: key-type"></div>
+
+                <label>Тип ключа:
+                    <input name="gen-key" type="radio">Число
+                    <input name="gen-key" type="radio">Цифры
+                    <input name="gen-key" type="radio">Буквы
+                </label>
 
                 <label> Сложность:
-                    <input name="complexity" type="range" min="1" max="10" step="1" value="5">
+                    <input name="gen-difficulty" type="range" min="1" max="10" step="1" value="5">
                 </label>
-            </div>
+            </form>
         </div>
+        <div class="enigma">
+            <div class="arrow"><p>Этап 2</p></div>
+            <form>
 
-        <div id="submit" class="shine">
-            <button class="yellow" onclick="alert('Сохранено как черновик')">Черновик</button>
-            <!--<button class="green" onclick="alert('Поделиться')">Готово!</button>-->
-            <!--<button type="submit" class="green">Готово!</button>-->
-            <input type="submit" value="Готово!">
-            <button class="grey" >Отмена</button>
+                <label class="gen-img"><a th:href="@{/kit/game}"><img alt="Виселица"
+                                                                      th:src="@{/img/enigma/gallows.png}"></a></label>
+                <label><b>Описание: </b> нужно угадать слово определённой длины, выбирая по одной букве</label>
+
+                <label>Тип ключа:
+                    <input name="gen-key" type="radio">Число
+                    <input name="gen-key" type="radio">Цифры
+                    <input name="gen-key" type="radio">Буквы
+                </label>
+
+                <label> Сложность:
+                    <input name="gen-difficulty" type="range" min="1" max="10" step="1" value="5">
+                </label>
+
+                <div class="gen-question">
+                    <label> Введите слово-ответ (5 букв):<br/>
+                        <input name="gen-answer" type="text" size="5" maxlength="5"/>
+                    </label>
+
+                    <label> Введите вопрос:<br/>
+                        <textarea name="gen-question" maxlength="250"></textarea>
+                    </label>
+                </div>
+            </form>
         </div>
+        <div class="enigma">
+            <div class="arrow"><p>Этап 3</p></div>
+            <form>
 
+                <div th:replace="~{fragments/selector :: enigma-type}"></div>
+
+                <label class="gen-img"><a th:href="@{/kit/game}"><img alt="Шифрование перестановкой"
+                                                                      th:src="@{/img/ava/nophoto.jpg}"></a></label>
+                <label><b>Описание: </b> дан ключ из набора символов. Разгадайте с помощью него слово или предложение
+                    заданной длины, зашифрованное методом перестанови</label>
+
+                <label>Тип ключа:
+                    <input name="gen-key" type="radio">Число
+                    <input name="gen-key" type="radio">Цифры
+                    <input name="gen-key" type="radio">Буквы
+                </label>
+
+                <label> Сложность:
+                    <input name="gen-difficulty" type="range" min="1" max="10" step="1" value="5">
+                </label>
+            </form>
+        </div>
         <div class="add">
-            <a class="submitbutton" th:href="@{|/kit/enigma/add/${kit.id}|}">+</a>
-            </button><br/><br/>
-            <!--<form method="get" action="/kit/enigma/add">
-                <input name="id" type="hidden" th:value="${kit.id}">
-                <input class="submitbutton" type="submit" value="+">
-                </button><br/><br/>
-                &lt;!&ndash;<button type="button">
-                    +
-                &ndash;&gt;
-            </form>-->
-            <!--<button type="button">
-                🎁
-            </button>-->
+            <button type="button">
+                +
+            </button>
         </div>
-
     </div>
-    </form>
+    <div id="submit" class="shine">
+        <button class="yellow" onclick="alert('Сохранено как черновик')">Черновик</button>
+        <button class="green" onclick="alert('Поделиться')">Готово!</button>
+        <button class="grey" >Отмена</button>
+    </div>
 </main>
 </body>
 </html>
