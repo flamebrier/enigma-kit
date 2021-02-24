@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Supple - подари гибкий мозг!</title>
-    <link rel="stylesheet" href="../css/commonStyle.css">
-    <link rel="stylesheet" href="../css/genStyle.css">
+    <link rel="stylesheet" th:href="@{/css/commonStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/genStyle.css}">
 
 </head>
 <body>
@@ -17,21 +17,40 @@
     <div th:replace="~{fragments/header :: sign}"></div>
 </header>
 <main>
+    <form action="/kit/save" method="post" th:object="${kit}">
     <form class="about">
         <label>
             <b>Название:</b>
-            <input type="text" maxlength="150" placeholder="Название кита">
+            <input th:field="*{name}" type="text" maxlength="150" placeholder="Название кита">
         </label>
         <br/><br/>
         <label>
             <b>Описание кита:</b>
-            <textarea maxlength="250">
+            <textarea th:field="*{description}" maxlength="250">
 </textarea>
         </label>
     </form>
     <br/>
     <div id="gen">
-        <div class="enigma">
+
+        <div th:each="enigma, iter : ${kit.enigmas}" class="enigma">
+            <div class="arrow"><p th:utext="${'Этап ' + iter.count}"></p></div>
+            <div id="custform">
+                <div th:replace="fragments/selector :: enigma-type"></div>
+
+                <label class="gen-img"><a th:href="@{/kit/game}"><img alt="Пятнашки" th:src="@{/img/enigma/blocks.png}"></a></label>
+                <label><b>Описание: </b>
+                    классическая игра, выдающая после прохождения код для следующего задания. Результат, полученный до этого, влияет на количество пятнашек в наборе</label>
+
+                <div th:replace="fragments/selector :: key-type"></div>
+
+                <label> Сложность:
+                    <input name="gen-difficulty" type="range" min="1" max="10" step="1" value="5">
+                </label>
+            </div>
+        </div>
+
+        <!--<div class="enigma">
             <div class="arrow"><p>Этап 1</p></div>
             <form>
 
@@ -103,18 +122,21 @@
                     <input name="gen-difficulty" type="range" min="1" max="10" step="1" value="5">
                 </label>
             </form>
-        </div>
+        </div>-->
         <div class="add">
-            <button type="button">
+            <a class="submitbutton" th:href="@{|/kit/enigma/add/${kit.id}|}">+</a>
+            <!--<button type="button">
                 +
-            </button>
+            </button>-->
         </div>
     </div>
     <div id="submit" class="shine">
         <button class="yellow" onclick="alert('Сохранено как черновик')">Черновик</button>
-        <button class="green" onclick="alert('Поделиться')">Готово!</button>
+        <!--<button class="green" type="submit" onclick="alert('Поделиться')">Готово!</button>-->
+        <input type="submit" value="Готово!">
         <button class="grey" >Отмена</button>
     </div>
+    </form>
 </main>
 </body>
 </html>
