@@ -6,18 +6,13 @@
     <!-- версия для разработки, отображает полезные предупреждения в консоли -->
     <link rel="stylesheet" href="css/commonStyle.css">
     <link rel="stylesheet" href="css/homeStyle.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 </head>
 <body>
 <div id="home">
     <div th:replace="~{fragments/header :: sign}"></div>
     <main>
-        <form id="find">
-            <label>
-                <input type="url" placeholder="Введите ссылку на кит"/>
-                <button>🔍</button>
-            </label>
-        </form>
+        <div th:replace="~{fragments/header :: find}"></div>
         <h1 id="main-header">
             <b>Supple</b> - подари гибкий мозг!
         </h1>

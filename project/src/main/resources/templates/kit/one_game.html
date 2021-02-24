@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Supple - подари гибкий мозг!</title>
+    <link href="../css/commonStyle.css" rel="stylesheet">
+    <link href="../css/execStyle.css" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="~{fragments/header :: navigation}"></div>
+
+<div th:replace="~{fragments/header :: find}"></div>
+
+<main>
+    <div class="stage">
+        <div class="info">
+            Пятнашки
+        </div>
+        <div class="game">
+            <img alt="game" th:src="@{/img/enigma/blocks.png}">
+            <div class="enigma">
+                <p class="name">
+                    Пятнашки
+                </p>
+                <p>
+                    <b>Описание:</b> классическая игра, выдающая после прохождения код для следующего задания.
+                    Результат, полученный до этого, влияет на количество пятнашек в наборе
+                </p>
+                <p><b>Возможность задать:</b></p>
+                <ul>
+                    <li>Тип ключа</li>
+                    <li>Сложность</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

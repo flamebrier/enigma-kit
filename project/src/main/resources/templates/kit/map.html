@@ -4,58 +4,43 @@
     <meta charset="UTF-8">
     <title>Supple - подари гибкий мозг!</title>
     <link rel="stylesheet" href="../css/commonStyle.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 </head>
 <body>
 
 <div th:replace="~{fragments/header :: navigation}"></div>
 
-<form id="find">
-    <label>
-        <input type="url" placeholder="Введите ссылку на кит"/>
-        <button>🔍</button>
-    </label>
-</form>
+<div th:replace="~{fragments/header :: find}"></div>
 <header>
     <h1><b>Карта китов</b> - всё о твоих китах!</h1>
     <div th:replace="~{fragments/header :: sign}"></div>
 </header>
 
-<div class="mini-menu">
-    <ul>
-        <li><a href="#" onclick="alert('Избранные киты')">Избранное</a></li>
-        <li><a href="#" onclick="alert('Киты, созданные пользователем')">Созданные</a></li>
-        <li><a href="#" onclick="alert('Киты, пройденные пользователем')">Пройденные</a></li>
-        <li><a href="#" onclick="alert('Киты в процессе прохождения')">В процессе прохождения</a></li>
-    </ul>
-</div>
 <main id="map">
     <div class="map">
         <div class="kit">
-            <div class="arrow"><p><a href="exec.html">Пройти!</a></p></div>
+            <div class="arrow"><p><a th:href="@{/kit/exec}">Пройти!</a></p></div>
             <div class="img">
-                <img src="enigma/img/blocks.png" alt="Кит"/>
+                <img alt="Кит" th:src="@{/img/enigma/blocks.png}"/>
             </div>
             <div class="info">
                 <p class="name">
                     Ностальгический кит
                 </p>
                 <p class="author">
-                    <b>Автор:</b> <a href="profile/flamebrier.html">Flamebrier</a>
+                    <b>Автор:</b> <a th:href="@{/profile}">Flamebrier</a>
                 </p>
                 <p>
                     <b>Описание:</b> Кит из простых игр из детства и шифрования
                 </p>
-                <p>
-                    <b>Рейтинг:</b> ⭐⭐⭐⭐⭐
-                </p>
+
                 <div class="stages">
                     <p class="s">Этап 1</p>
-                    <p class="n"><a href="enigma/blocks.html">Пятнашки</a> (сложность 5)</p>
+                    <p class="n"><a th:href="@{/kit/game}">Пятнашки</a> (сложность 5)</p>
                     <p class="s">Этап 2</p>
-                    <p class="n"><a href="enigma/gallows.html">Виселица</a> (сложность 7)</p>
+                    <p class="n"><a th:href="@{/kit/game}">Виселица</a> (сложность 7)</p>
                     <p class="s">Этап 3</p>
-                    <p class="n"><a href="enigma/replace.html">Шифрование перестановкой</a> (сложность 2)</p>
+                    <p class="n"><a th:href="@{/kit/game}">Шифрование перестановкой</a> (сложность 2)</p>
                 </div>
             </div>
             <div class="buttons simple shine">
@@ -63,30 +48,28 @@
             </div>
         </div>
         <div class="kit">
-            <div class="arrow"><p><a href="exec.html">Пройти!</a></p></div>
+            <div class="arrow"><p><a th:href="@{/kit/exec}">Пройти!</a></p></div>
             <div class="img">
-                <img src="enigma/img/gallows.png" alt="Кит"/>
+                <img th:src="@{/img/ava/nophoto.jpg}"/>
             </div>
             <div class="info">
                 <p class="name">
                     Супер-сложный кит
                 </p>
                 <p class="author">
-                    <b>Автор:</b> <a href="profile/arvyb.html">ArvyB</a>
+                    <b>Автор:</b> <a th:href="@{/profile}">ArvyB</a>
                 </p>
                 <p>
                     <b>Описание:</b> Кит для тех, кто хочет долго думать
                 </p>
-                <p>
-                    <b>Рейтинг:</b> ⭐⭐⭐⭐⭐
-                </p>
+
                 <div class="stages">
                     <p class="s">Этап 1</p>
-                    <p class="n"><a href="enigma/replace.html">Шифрование перестановкой</a> (сложность 10)</p>
+                    <p class="n"><a th:href="@{/kit/game}">Шифрование перестановкой</a> (сложность 10)</p>
                     <p class="s">Этап 2</p>
-                    <p class="n"><a href="enigma/blocks.html">Пятнашки</a> (сложность 10)</p>
+                    <p class="n"><a th:href="@{/kit/game}">Пятнашки</a> (сложность 10)</p>
                     <p class="s">Этап 3</p>
-                    <p class="n"><a href="enigma/gallows.html">Виселица</a> (сложность 10)</p>
+                    <p class="n"><a th:href="@{/kit/game}">Виселица</a> (сложность 10)</p>
                 </div>
             </div>
             <div class="buttons simple shine">
@@ -97,12 +80,9 @@
     <div class="user simple shine">
         <img src="/img/ava/flamebrier.jpg" alt="flamebrier">
         <h1>flamebrier</h1>
-
-        <p><b>Пол:</b> Не определён</p>
-        <p><b>Город:</b> Владимир</p>
-        <p><b>Cозданных китов:</b> 1</p>
-        <p><b>Пройденных китов:</b> 2</p>
-        <a href="profile/flamebrier.html"><button class="grey">Редактировать</button></a>
+        <a th:href="@{/profile}">
+            <button class="grey">Редактировать</button>
+        </a>
     </div>
 
 </main>

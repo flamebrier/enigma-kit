@@ -1,3 +1,7 @@
+html {
+    background-color: transparent !important;
+}
+
 body {
     margin: 0;
     background-image: url("../img/bg_leaves2.jpg");
@@ -163,12 +167,28 @@ nav a:hover{
     vertical-align: middle;
     margin: -2px;
 }
+
 .panel .green {
     border-radius: 100% 0 0 100%;
 }
+
 .panel .yellow {
     border-radius: 0 0 0 0;
 }
+
 .panel .grey {
     border-radius: 0 100% 100% 0;
+}
+
+#find input {
+    color: white;
+}
+
+.game .enigma {
+    font-size: 2em;
+}
+
+.game .enigma .name {
+    font-size: 2em;
+    font-weight: bold;
 }

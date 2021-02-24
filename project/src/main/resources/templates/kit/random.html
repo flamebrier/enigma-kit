@@ -3,25 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Supple - подари гибкий мозг!</title>
-    <!-- версия для разработки, отображает полезные предупреждения в консоли -->
     <link rel="stylesheet" href="../css/commonStyle.css">
     <link rel="stylesheet" href="../css/execStyle.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
 
 <div th:replace="~{fragments/header :: navigation}"></div>
 
-<form id="find">
-    <label>
-        <input type="url" placeholder="Введите ссылку на кит"/>
-        <button>🔍</button>
-    </label>
-</form>
-<header>
-    <h1><b>Лучшие киты</b> - пройди, что сделали другие!</h1>
-    <div th:replace="~{fragments/header :: sign}"></div>
-</header>
+<div th:replace="~{fragments/header :: find}"></div>
+
 <main>
     <div class="stage">
         <div class="info">
@@ -29,13 +19,8 @@
             Пятнашки
         </div>
         <div class="game">
-            <img src="enigma/img/blocks.png" alt="game">
+            <img alt="game" th:src="@{/img/enigma/blocks.png}">
         </div>
-    </div>
-    <div class="panel shine simple">
-        <button class="green" onclick="alert('Информация')">🛈</button>
-        <button class="yellow" onclick="alert('Пауза')">⏸</button>
-        <button class="grey" onclick="alert('Стоп')">⏹</button>
     </div>
 </main>
 </body>
