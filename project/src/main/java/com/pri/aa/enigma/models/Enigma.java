@@ -1,6 +1,7 @@
 package com.pri.aa.enigma.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Size;
 import java.util.List;
 
@@ -14,7 +15,6 @@ public class Enigma {
     private EnigmaType enigmaType;
     @Column(length = 1000)
     private String description;
-    @Size(min = 1, max = 10)
     private Short complexity;
     @ManyToMany
     private List<Kit> kits;
@@ -23,6 +23,7 @@ public class Enigma {
     private Boolean isPublic;
 
     public Enigma() {
+        complexity = 1;
     }
 
     public Long getId() {

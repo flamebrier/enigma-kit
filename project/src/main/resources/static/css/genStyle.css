@@ -40,6 +40,26 @@ main {
     transition: all 0.2s ease-out;
 }
 
+.add input {
+    display: block;
+    font-size: 70px;
+    width: 100px;
+    padding: 0;
+    margin: 1vmax;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    background-color: #e0a800;
+    border: 1px solid #e0a800;
+    border-radius: 10px;
+    float: left;
+    transition: all 0.2s ease-out;
+}
+
+.add input:hover {
+    background-color: rgba(225,187,0,0.75)
+}
+
 .add button:hover {
     background-color: rgba(225,187,0,0.75)
 }
@@ -164,6 +184,20 @@ main {
     max-width: 100%;
 }
 
+#custform {
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 1em;
+    margin: 20px 1vmin 0;
+    padding: 10px;
+    white-space: normal;
+    min-height: 400px;
+    width: 300px;
+    vertical-align: top;
+    float: right;
+}
+
 /*
  * Кнопки генератора
  */
@@ -198,6 +232,7 @@ main {
 
     transition: font-weight 0.2s ease-in-out;
 }
+
 #submit button:hover {
     font-weight: 600;
 }
