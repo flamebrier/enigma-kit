@@ -18,124 +18,54 @@
 </header>
 <main>
     <form action="/kit/save" method="post" th:object="${kit}">
-    <form class="about">
-        <label>
-            <b>Название:</b>
-            <input th:field="*{name}" type="text" maxlength="150" placeholder="Название кита">
-        </label>
-        <br/><br/>
-        <label>
-            <b>Описание кита:</b>
-            <textarea th:field="*{description}" maxlength="250">
+        <br/>
+        <div id="gen">
+            <form class="about">
+                <label>
+                    <b>Название:</b>
+                    <input maxlength="150" placeholder="Название кита" th:field="*{name}" type="text">
+                </label>
+                <br/><br/>
+                <label>
+                    <b>Описание кита:</b>
+                    <textarea maxlength="250" th:field="*{description}">
 </textarea>
-        </label>
-    </form>
-    <br/>
-    <div id="gen">
-
-        <div th:each="enigma, iter : ${kit.enigmas}" class="enigma">
-            <div class="arrow"><p th:utext="${'Этап ' + iter.count}"></p></div>
-            <div id="custform">
-                <div th:replace="fragments/selector :: enigma-type"></div>
-
-                <label class="gen-img"><a th:href="@{/kit/game}"><img alt="Пятнашки" th:src="@{/img/enigma/blocks.png}"></a></label>
-                <label><b>Описание: </b>
-                    классическая игра, выдающая после прохождения код для следующего задания. Результат, полученный до этого, влияет на количество пятнашек в наборе</label>
-
-                <div th:replace="fragments/selector :: key-type"></div>
-
-                <label> Сложность:
-                    <input name="gen-difficulty" type="range" min="1" max="10" step="1" value="5">
-                </label>
-            </div>
-        </div>
-
-        <!--<div class="enigma">
-            <div class="arrow"><p>Этап 1</p></div>
-            <form>
-
-                <div th:replace="~{fragments/selector :: enigma-type}"></div>
-
-                <label class="gen-img"><a th:href="@{/kit/game}"><img alt="Пятнашки" th:src="@{/img/enigma/blocks.png}"></a></label>
-                <label><b>Описание: </b>
-                    классическая игра, выдающая после прохождения код для следующего задания. Результат, полученный до этого, влияет на количество пятнашек в наборе</label>
-
-
-                <label>Тип ключа:
-                    <input name="gen-key" type="radio">Число
-                    <input name="gen-key" type="radio">Цифры
-                    <input name="gen-key" type="radio">Буквы
-                </label>
-
-                <label> Сложность:
-                    <input name="gen-difficulty" type="range" min="1" max="10" step="1" value="5">
                 </label>
             </form>
-        </div>
-        <div class="enigma">
-            <div class="arrow"><p>Этап 2</p></div>
-            <form>
+            <div class="enigma" th:each="enigma, iter : ${kit.enigmas}">
+                <div class="arrow"><p th:utext="${'Этап ' + iter.count}"></p></div>
+                <div id="custform">
+                    <div th:replace="fragments/selector :: enigma-type"></div>
 
-                <label class="gen-img"><a th:href="@{/kit/game}"><img alt="Виселица"
-                                                                      th:src="@{/img/enigma/gallows.png}"></a></label>
-                <label><b>Описание: </b> нужно угадать слово определённой длины, выбирая по одной букве</label>
+                    <label class="gen-img"><a th:href="@{/kit/game}"><img alt="Пятнашки"
+                                                                          th:src="@{/img/enigma/blocks.png}"></a></label>
+                    <label><b>Описание: </b>
+                        классическая игра, выдающая после прохождения код для следующего задания. Результат, полученный
+                        до этого, влияет на количество пятнашек в наборе</label>
 
-                <label>Тип ключа:
-                    <input name="gen-key" type="radio">Число
-                    <input name="gen-key" type="radio">Цифры
-                    <input name="gen-key" type="radio">Буквы
-                </label>
+                    <div th:replace="fragments/selector :: key-type"></div>
 
-                <label> Сложность:
-                    <input name="gen-difficulty" type="range" min="1" max="10" step="1" value="5">
-                </label>
-
-                <div class="gen-question">
-                    <label> Введите слово-ответ (5 букв):<br/>
-                        <input name="gen-answer" type="text" size="5" maxlength="5"/>
-                    </label>
-
-                    <label> Введите вопрос:<br/>
-                        <textarea name="gen-question" maxlength="250"></textarea>
+                    <label> Сложность:
+                        <input max="10" min="1" name="gen-difficulty" step="1" type="range" value="5">
                     </label>
                 </div>
-            </form>
+            </div>
+
+            <div class="add">
+                <a th:href="@{|/kit/enigma/add/${kit.id}|}">
+                    <button>+</button>
+                </a>
+                <!--<button type="button">
+                    +
+                </button>-->
+            </div>
         </div>
-        <div class="enigma">
-            <div class="arrow"><p>Этап 3</p></div>
-            <form>
-
-                <div th:replace="~{fragments/selector :: enigma-type}"></div>
-
-                <label class="gen-img"><a th:href="@{/kit/game}"><img alt="Шифрование перестановкой"
-                                                                      th:src="@{/img/ava/nophoto.jpg}"></a></label>
-                <label><b>Описание: </b> дан ключ из набора символов. Разгадайте с помощью него слово или предложение
-                    заданной длины, зашифрованное методом перестанови</label>
-
-                <label>Тип ключа:
-                    <input name="gen-key" type="radio">Число
-                    <input name="gen-key" type="radio">Цифры
-                    <input name="gen-key" type="radio">Буквы
-                </label>
-
-                <label> Сложность:
-                    <input name="gen-difficulty" type="range" min="1" max="10" step="1" value="5">
-                </label>
-            </form>
-        </div>-->
-        <div class="add">
-            <a class="submitbutton" th:href="@{|/kit/enigma/add/${kit.id}|}">+</a>
-            <!--<button type="button">
-                +
-            </button>-->
+        <div class="shine" id="submit">
+            <input class="yellow" onclick="alert('Сохранено как черновик')" type="button" value="Черновик">
+            <!--<button class="green" type="submit" onclick="alert('Поделиться')">Готово!</button>-->
+            <input class="green" type="submit" value="Готово!">
+            <input class="grey" type="button" value="Отмена">
         </div>
-    </div>
-    <div id="submit" class="shine">
-        <button class="yellow" onclick="alert('Сохранено как черновик')">Черновик</button>
-        <!--<button class="green" type="submit" onclick="alert('Поделиться')">Готово!</button>-->
-        <input type="submit" value="Готово!">
-        <button class="grey" >Отмена</button>
-    </div>
     </form>
 </main>
 </body>

@@ -10,11 +10,13 @@
     margin-bottom: 6vh;
     margin-top: -1vh;
 }
+
 main {
     padding: 0;
     width: auto;
     display: block !important;
 }
+
 /*
  * Добавить карточку
  */
@@ -24,6 +26,7 @@ main {
     margin-left: 1vmax;
     margin-right: 1vmax;
 }
+
 .add button {
     display: block;
     font-size: 70px;
@@ -40,41 +43,29 @@ main {
     transition: all 0.2s ease-out;
 }
 
-.add input {
-    display: block;
-    font-size: 70px;
-    width: 100px;
-    padding: 0;
-    margin: 1vmax;
-    text-align: center;
-    vertical-align: middle;
-    color: white;
-    background-color: #e0a800;
-    border: 1px solid #e0a800;
-    border-radius: 10px;
-    float: left;
-    transition: all 0.2s ease-out;
-}
-
 .add input:hover {
-    background-color: rgba(225,187,0,0.75)
+    background-color: rgba(225, 187, 0, 0.75)
 }
 
 .add button:hover {
-    background-color: rgba(225,187,0,0.75)
+    background-color: rgba(225, 187, 0, 0.75)
 }
+
 .about {
     width: 100%;
 }
+
 .about b {
     width: 15%;
     display: inline-block;
     vertical-align: top;
 }
+
 .about input, .about textarea {
     width: 80%;
     display: inline-block;
 }
+
 .about label {
     margin: 5px;
 }
@@ -146,6 +137,7 @@ main {
 .enigma {
     display: inline-block;
 }
+
 .enigma form {
     overflow-y: auto;
     background-color: white;
@@ -159,13 +151,16 @@ main {
     vertical-align: top;
     float: right;
 }
+
 .enigma label {
     display: block;
     margin: 1em;
 }
+
 .enigma .gen-img {
     text-align: center;
 }
+
 .enigma img {
     max-width: 100%;
     height: auto;
@@ -173,12 +168,15 @@ main {
     border-radius: 1em;
     transition: all .2s ease;
 }
+
 .enigma img:hover {
     opacity: 0.7;
 }
+
 .enigma input[type=range] {
     width: 100%;
 }
+
 .enigma textarea {
     width: 100%;
     max-width: 100%;
@@ -210,10 +208,13 @@ main {
     margin-left: auto;
     margin-right: auto;
 }
+
 #submit:hover {
     bottom: 0;
 }
-#submit button{
+
+#submit input {
+    font-size: 1.75em;
     height: 7vh;
     min-height: 50px;
     width: 20vw;
@@ -233,17 +234,20 @@ main {
     transition: font-weight 0.2s ease-in-out;
 }
 
-#submit button:hover {
+#submit input:hover {
     font-weight: 600;
 }
-#submit button:nth-child(1) {
+
+#submit input:nth-child(1) {
     border-radius: 2vmax 0 0 0;
     margin-right: -5px;
 }
-#submit button:nth-child(3) {
+
+#submit input:nth-child(3) {
     border-radius: 0 2vmax 0 0;
     margin-left: -5px;
 }
+
 /*--------------------------
  * КОНЕЦ ГЕНЕРАТОР
  ---------------------------*/
