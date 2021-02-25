@@ -46,7 +46,7 @@
                     <div th:replace="fragments/selector :: key-type"></div>
 
                     <label> Сложность:
-                        <input max="10" min="1" name="gen-difficulty" step="1" type="range" value="5">
+                        <input th:field="*{enigmas[__${itemStat.index}__].complexity}" max="10" min="1" name="gen-difficulty" step="1" type="range" value="5">
                     </label>
                 </div>
             </div>

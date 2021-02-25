@@ -4,7 +4,7 @@
 
 <div th:fragment="enigma-type">
     <label>Название:
-        <select name="gen_name">
+        <select name="gen_name" th:field="*{enigmas[__${itemStat.index}__].enigmaType}">
             <option th:each="enigmaType : ${T(com.pri.aa.enigma.models.EnigmaType).values()}"
                     th:value="${enigmaType}" th:text="${enigmaType.displayValue}"></option>
         </select>
@@ -12,10 +12,15 @@
 </div>
 
 <div th:fragment="key-type">
-    <label>Тип ключа:
-        <input name="gen-key" type="radio">Число
+    <label>
+        <!--<input name="gen-key" type="radio">Число
         <input name="gen-key" type="radio">Цифры
-        <input name="gen-key" type="radio">Буквы
+        <input name="gen-key" type="radio">Буквы-->
+        <p>Тип ключа:</p>
+        <div th:each="keyType : ${T(com.pri.aa.enigma.models.KeyType).values()}" style="display: inline;">
+            <input type="radio" name="gen-key" style="display: inline;">
+            <p th:text="${keyType.displayValue}" style="display: inline;"></p>
+        </div>
     </label>
 </div>
 
