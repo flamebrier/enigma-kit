@@ -27,32 +27,30 @@ main {
     margin-right: 1vmax;
 }
 
-.add button {
+.add a:link, .add a:visited {
     display: block;
-    font-size: 70px;
+    font-size: 72px;
     width: 100px;
-    padding: 0;
+    padding-top: 4px;
     margin: 1vmax;
     text-align: center;
     vertical-align: middle;
     color: white;
     background-color: #e0a800;
-    border: 1px solid #e0a800;
+    border: 1px solid #c90;
     border-radius: 10px;
     float: left;
     transition: all 0.2s ease-out;
+    text-decoration: none;
 }
 
-.add input:hover {
-    background-color: rgba(225, 187, 0, 0.75)
-}
-
-.add button:hover {
+.add a:hover, .add a:active {
     background-color: rgba(225, 187, 0, 0.75)
 }
 
 .about {
     width: 100%;
+    display: block;
 }
 
 .about b {

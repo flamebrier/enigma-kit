@@ -20,7 +20,7 @@
     <form action="/kit/save" method="post" th:object="${kit}">
         <br/>
         <div id="gen">
-            <!--<form class="about">-->
+            <div class="about">
                 <label>
                     <b>Название:</b>
                     <input maxlength="150" placeholder="Название кита" th:field="*{name}" type="text">
@@ -31,7 +31,7 @@
                     <textarea maxlength="250" th:field="*{description}">
 </textarea>
                 </label>
-            <!--</form>-->
+            </div>
             <div class="enigma" th:each="enigma, iter : ${kit.enigmas}">
                 <div class="arrow"><p th:text="${'Этап ' + iter.count}"></p></div>
                 <div id="custform">
@@ -53,7 +53,6 @@
 
             <div class="add">
                 <a th:href="@{|/kit/enigma/add/${kit.id}|}">
-                    <!--<button>+</button>-->
                     +
                 </a>
                 <!--<button type="button">
@@ -61,7 +60,6 @@
                 </button>-->
             </div>
         </div>
-        <!--<input class="green" type="submit" value="Готово!">-->
         <div class="shine" id="submit">
             <input class="yellow" onclick="alert('Сохранено как черновик')" type="button" value="Черновик">
             <!--<button class="green" type="submit" onclick="alert('Поделиться')">Готово!</button>-->

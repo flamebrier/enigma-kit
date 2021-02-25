@@ -37,17 +37,7 @@ body {
     font-family: SourceSansPro, Arial, sans-serif;
     font-style: italic;
 }
-.stage {
-    width: 60vw;
-    max-width: 60vh;
-    min-width: 300px;
-    padding: 5vh 5vw;
-    margin: 0 auto;
-    border-top: 1.2vmax solid #e0a800;
-    border-left: 1.2vmax solid #e0a800;
-    border-right: 1.2vmax solid #e0a800;
-    border-radius: 0 0 1.2vw 1.2vw;
-}
+
 @keyframes fadein {
     from {
         opacity: 0
@@ -117,7 +107,17 @@ nav a:hover{
 
 .stage {
     display: inline-block;
+    width: 60vw;
+    max-width: 60vh;
+    min-width: 300px;
+    padding: 5vh 5vw;
+    margin: 0 auto;
+    border-top: 1.2vmax solid #e0a800;
+    border-left: 1.2vmax solid #e0a800;
+    border-right: 1.2vmax solid #e0a800;
+    border-radius: 0 0 1.2vw 1.2vw;
 }
+
 .stage .info {
     color: rgba(224,168,0,1);
     font-family: SourceSansPro, sans-serif;
@@ -191,4 +191,24 @@ nav a:hover{
 .game .enigma .name {
     font-size: 2em;
     font-weight: bold;
+}
+
+.error {
+    text-align: center;
+}
+
+.error h1 {
+    font-size: 8em;
+    color: #e0a800;
+}
+
+.error h4 {
+    font-size: 2.5em;
+    color: #e0a800;
+}
+
+.error a:active, .error a:hover, .error a:visited, .error a:link {
+    font-size: 32px;
+    color: white;
+    text-decoration: none;
 }
