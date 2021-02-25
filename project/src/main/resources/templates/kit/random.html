@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Supple - подари гибкий мозг!</title>
+    <link rel="stylesheet" href="../css/commonStyle.css">
+    <link rel="stylesheet" href="../css/execStyle.css">
+</head>
+<body>
+
+<div th:replace="~{fragments/header :: navigation}"></div>
+
+<div th:replace="~{fragments/header :: find}"></div>
+
+<main>
+    <div class="stage">
+        <div class="info">
+            <p>Этап <b>1</b> из <b>3</b></p>
+            Пятнашки
+        </div>
+        <div class="game">
+            <img alt="game" th:src="@{/img/enigma/blocks.png}">
+        </div>
+    </div>
+</main>
+</body>
+</html>

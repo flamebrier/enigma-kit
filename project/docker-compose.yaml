@@ -1,0 +1,21 @@
+version: '3.2'
+services:
+  postgres:
+    container_name: enigma_db
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/postgres/Dockerfile
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=root
+      - POSTGRES_DB=enigma
+    ports:
+      - 5432:5432
+  jre:
+    container_name: jre
+    build:
+      context: .
+      dockerfile: ./docker/jre/Dockerfile
+    ports:
+      - 8080:8080

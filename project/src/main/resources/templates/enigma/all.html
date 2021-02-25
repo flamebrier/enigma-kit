@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Supple - подари гибкий мозг!</title>
+    <link rel="stylesheet" href="../css/commonStyle.css">
+    <link rel="stylesheet" href="../css/masonryStyle.css">
+
+</head>
+<body>
+
+<div th:replace="~{fragments/header :: navigation}"></div>
+
+<div th:replace="~{fragments/header :: find}"></div>
+<header>
+    <h1><b>Головоломки</b> - доступные мини-игры для китов</h1>
+    <div th:replace="~{fragments/header :: sign}"></div>
+</header>
+<main id="masonry">
+    <div class="enigma">
+        <div class="info">
+            <p class="name">
+                Пятнашки
+            </p>
+            <p>
+                <b>Описание:</b> классическая игра, выдающая после прохождения код для следующего задания. Результат,
+                полученный до этого, влияет на количество пятнашек в наборе
+            </p>
+            <p><b>Возможность задать:</b></p>
+            <ul>
+                <li>Тип ключа</li>
+                <li>Сложность</li>
+            </ul>
+        </div>
+        <div class="img">
+            <img alt="Головоломка" th:src="@{/img/enigma/blocks.png}"/>
+        </div>
+        <div class="buttons simple shine">
+            <a th:href="@{/exec}">
+                <button class="yellow">Попробовать</button>
+            </a>
+
+        </div>
+    </div>
+    <div class="enigma">
+        <div class="info">
+            <p class="name">
+                Виселица
+            </p>
+            <p>
+                <b>Описание:</b> нужно угадать слово определённой длины, выбирая по одной букве
+            </p>
+            <p><b>Возможность задать:</b></p>
+            <ul>
+                <li>Тип ключа</li>
+                <li>Сложность</li>
+                <li>Вопрос и ответ</li>
+            </ul>
+        </div>
+        <div class="img">
+            <img alt="Кит" th:src="@{/img/enigma/gallows.png}"/>
+        </div>
+        <div class="buttons simple shine">
+            <a th:href="@{/kit/exec}">
+                <button class="yellow">Попробовать</button>
+            </a>
+
+        </div>
+    </div>
+    <div class="enigma">
+        <div class="info">
+            <p class="name">
+                Шифрование перестановкой
+            </p>
+            <p>
+                <b>Описание:</b> дан ключ из набора символов. Разгадайте с помощью него слово или предложение заданной
+                длины, зашифрованное методом перестановки
+            </p>
+            <p><b>Возможность задать:</b></p>
+            <ul>
+                <li>Тип ключа</li>
+                <li>Сложность</li>
+            </ul>
+        </div>
+        <div class="img">
+            <img alt="Кит" th:src="@{/img/ava/nophoto.jpg}"/>
+        </div>
+        <div class="buttons simple shine">
+            <a th:href="@{/kit/exec}">
+                <button class="yellow">Попробовать</button>
+            </a>
+
+        </div>
+    </div>
+    <div class="enigma">
+        <div class="info">
+            <p class="name">
+                Пятнашки
+            </p>
+            <p>
+                <b>Описание:</b> классическая игра, выдающая после прохождения код для следующего задания. Результат,
+                полученный до этого, влияет на количество пятнашек в наборе
+            </p>
+            <p><b>Возможность задать:</b></p>
+            <ul>
+                <li>Тип ключа</li>
+                <li>Сложность</li>
+            </ul>
+        </div>
+        <div class="img">
+            <img alt="Головоломка" th:src="@{/img/enigma/blocks.png}"/>
+        </div>
+        <div class="buttons simple shine">
+            <a th:href="@{/kit/exec}">
+                <button class="yellow">Попробовать</button>
+            </a>
+
+        </div>
+    </div>
+    <div class="enigma">
+        <div class="info">
+            <p class="name">
+                Виселица
+            </p>
+            <p>
+                <b>Описание:</b> нужно угадать слово определённой длины, выбирая по одной букве
+            </p>
+            <p><b>Возможность задать:</b></p>
+            <ul>
+                <li>Тип ключа</li>
+                <li>Сложность</li>
+                <li>Вопрос и ответ</li>
+            </ul>
+        </div>
+        <div class="img">
+            <img alt="Кит" th:src="@{/img/enigma/gallows.png}"/>
+        </div>
+        <div class="buttons simple shine">
+            <a th:href="@{/kit/exec}">
+                <button class="yellow">Попробовать</button>
+            </a>
+
+        </div>
+    </div>
+    <div class="enigma">
+        <div class="info">
+            <p class="name">
+                Шифрование перестановкой
+            </p>
+            <p>
+                <b>Описание:</b> дан ключ из набора символов. Разгадайте с помощью него слово или предложение заданной
+                длины, зашифрованное методом перестановки
+            </p>
+            <p><b>Возможность задать:</b></p>
+            <ul>
+                <li>Тип ключа</li>
+                <li>Сложность</li>
+            </ul>
+        </div>
+        <div class="img">
+            <img alt="Кит" th:src="@{/img/ava/nophoto.jpg}"/>
+        </div>
+        <div class="buttons simple shine">
+            <a th:href="@{/kit/exec}">
+                <button class="yellow">Попробовать</button>
+            </a>
+
+        </div>
+    </div>
+    <div class="enigma">
+        <div class="info">
+            <p class="name">
+                Пятнашки
+            </p>
+            <p>
+                <b>Описание:</b> классическая игра, выдающая после прохождения код для следующего задания. Результат,
+                полученный до этого, влияет на количество пятнашек в наборе
+            </p>
+            <p><b>Возможность задать:</b></p>
+            <ul>
+                <li>Тип ключа</li>
+                <li>Сложность</li>
+            </ul>
+        </div>
+        <div class="img">
+            <img alt="Головоломка" th:src="@{/img/enigma/blocks.png}"/>
+        </div>
+        <div class="buttons simple shine">
+            <a th:href="@{/kit/exec}">
+                <button class="yellow">Попробовать</button>
+            </a>
+
+        </div>
+    </div>
+    <div class="enigma">
+        <div class="info">
+            <p class="name">
+                Виселица
+            </p>
+            <p>
+                <b>Описание:</b> нужно угадать слово определённой длины, выбирая по одной букве
+            </p>
+            <p><b>Возможность задать:</b></p>
+            <ul>
+                <li>Тип ключа</li>
+                <li>Сложность</li>
+                <li>Вопрос и ответ</li>
+            </ul>
+        </div>
+        <div class="img">
+            <img alt="Кит" th:src="@{/img/enigma/gallows.png}"/>
+        </div>
+        <div class="buttons simple shine">
+            <a th:href="@{/kit/exec}">
+                <button class="yellow">Попробовать</button>
+            </a>
+
+        </div>
+    </div>
+    <div class="enigma">
+        <div class="info">
+            <p class="name">
+                Шифрование перестановкой
+            </p>
+            <p>
+                <b>Описание:</b> дан ключ из набора символов. Разгадайте с помощью него слово или предложение заданной
+                длины, зашифрованное методом перестановки
+            </p>
+            <p><b>Возможность задать:</b></p>
+            <ul>
+                <li>Тип ключа</li>
+                <li>Сложность</li>
+            </ul>
+        </div>
+        <div class="img">
+            <img alt="Кит" th:src="@{/img/ava/nophoto.jpg}"/>
+        </div>
+        <div class="buttons simple shine">
+            <a th:href="@{/kit/exec}">
+                <button class="yellow">Попробовать</button>
+            </a>
+
+        </div>
+    </div>
+</main>
+</body>
+</html>

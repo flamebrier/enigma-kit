@@ -1,0 +1,214 @@
+html {
+    background-color: transparent !important;
+}
+
+body {
+    margin: 0;
+    background-image: url("../img/bg_leaves2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+    color: white;
+    font-size: 1.3vmin;
+    overflow-x: hidden;
+}
+#home {
+    background-image: url("../img/bg_seamless3.png");
+    border-radius: 40vw 40vw 0 0;
+    transition: all 1s ease-in-out;
+    animation: fadein 1s;
+    text-align: center;
+    min-height: 100vh;
+}
+#home h1 {
+    margin: 0;
+    font-size: 5em;
+}
+#home h1 b {
+    color: #e0a800;
+    font-family: Selima, sans-serif;
+    font-size: 2em;
+}
+#home h2 {
+    margin-top: 1em;
+    font-size: 2.3em;
+    font-weight: 300;
+    font-family: SourceSansPro, Arial, sans-serif;
+    font-style: italic;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+nav {
+    border-radius: 0 0 1.2vw 1.2vw;
+    max-width: 80vmax;
+    min-width: 400px;
+    margin: 0 auto;
+
+    background: none !important;
+}
+nav ul:before {
+    display: none !important;
+}
+nav ul {
+    list-style: none;
+    margin: 4vmin;
+    padding-left: 0;
+    background: none !important;
+}
+nav li {
+    display: inline-block;
+    vertical-align:middle;
+    padding: 5px 0;
+}
+nav li:after {
+    content: "|";
+    color: white;
+    font-size: 2em;
+    font-weight: 300;
+    display: inline-block;
+}
+nav li:last-child:after {content: none;}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 2em;
+    margin: 0 1em 0 1em;
+    border-radius: 1vmax 1vmax 1vmax 1vmax;
+    border-left: 0.25em solid rgba(224,168,0,0);
+    border-right: 0.25em solid rgba(224,168,0,0);
+    transition: all 0.5s ease-in-out;
+}
+nav a:hover{
+    border-left: 0.25em solid rgba(224,168,0,1);
+    border-right: 0.25em solid rgba(224,168,0,1);
+}
+
+#sign {
+    position: absolute;
+    right: 0;
+    top:0;
+    display: inline-block;
+    float: right;
+    text-align: center;
+    width: 15vmin;
+}
+#sign button {
+    font-size: 5vmin;
+}
+
+.stage {
+    display: inline-block;
+    width: 60vw;
+    max-width: 60vh;
+    min-width: 300px;
+    padding: 5vh 5vw;
+    margin: 0 auto;
+    border-top: 1.2vmax solid #e0a800;
+    border-left: 1.2vmax solid #e0a800;
+    border-right: 1.2vmax solid #e0a800;
+    border-radius: 0 0 1.2vw 1.2vw;
+}
+
+.stage .info {
+    color: rgba(224,168,0,1);
+    font-family: SourceSansPro, sans-serif;
+    font-weight: bold;
+    font-size: 3em;
+    position: absolute;
+    margin-top: -3em;
+    margin-right: -5vw;
+    text-align: left;
+}
+.stage .game {
+    overflow: auto;
+    width: 100%;
+}
+.stage .game img {
+    width: 100%;
+}
+
+.panel {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: -2em;
+    transition: all .2s ease-in-out;
+}
+.panel:hover {
+    bottom: 0.5em;
+}
+.stage .info p {
+    color: rgba(224,168,0,1);
+    font-family: SourceSansPro, sans-serif;
+    font-size: 0.7em;
+    text-align: center;
+    margin-right: 1em;
+    display: inline;
+}
+.stage .info p b {
+    font-size: 1em;
+}
+.panel button {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    padding: 0;
+    font-size: 5em;
+    vertical-align: middle;
+    margin: -2px;
+}
+
+.panel .green {
+    border-radius: 100% 0 0 100%;
+}
+
+.panel .yellow {
+    border-radius: 0 0 0 0;
+}
+
+.panel .grey {
+    border-radius: 0 100% 100% 0;
+}
+
+#find input {
+    color: white;
+}
+
+.game .enigma {
+    font-size: 2em;
+}
+
+.game .enigma .name {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.error {
+    text-align: center;
+}
+
+.error h1 {
+    font-size: 8em;
+    color: #e0a800;
+}
+
+.error h4 {
+    font-size: 2.5em;
+    color: #e0a800;
+}
+
+.error a:active, .error a:hover, .error a:visited, .error a:link {
+    font-size: 32px;
+    color: white;
+    text-decoration: none;
+}

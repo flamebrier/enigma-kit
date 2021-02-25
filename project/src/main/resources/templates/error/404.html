@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Not found</title>
+    <link href="../css/commonStyle.css" rel="stylesheet">
+    <link href="../css/execStyle.css" rel="stylesheet">
+</head>
+<body>
+
+<main>
+    <div class="stage" style="text-align: center">
+        <div class="error">
+            <h1>404</h1>
+            <h4>Такой страницы не существует!</h4>
+            <a th:href="@{/}"><img alt="Назад" th:src="@{/img/arrow_back_white_48dp.png}" width="36"> На главную</a>
+        </div>
+    </div>
+</main>
+</body>
+</html>

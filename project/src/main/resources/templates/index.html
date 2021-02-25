@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Supple - подари гибкий мозг!</title>
+    <!-- версия для разработки, отображает полезные предупреждения в консоли -->
+    <link rel="stylesheet" href="css/commonStyle.css">
+    <link rel="stylesheet" href="css/homeStyle.css">
+
+</head>
+<body>
+<div id="home">
+    <div th:replace="~{fragments/header :: sign}"></div>
+    <main>
+        <div th:replace="~{fragments/header :: find}"></div>
+        <h1 id="main-header">
+            <b>Supple</b> - подари гибкий мозг!
+        </h1>
+        <h2>
+            <i>Самодельные интеллектуальные квесты в подарок</i>
+        </h2>
+    </main>
+
+    <div th:replace="~{fragments/header :: navigation}"></div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Supple - подари гибкий мозг!</title>
+    <link rel="stylesheet" href="../../css/commonStyle.css">
+
+</head>
+<body>
+
+<div th:replace="~{fragments/header :: navigation}"></div>
+
+<header>
+</header>
+<main id="profile">
+    <form method="post" th:action="@{registration}" class="simple shine">
+        <label><b>Логин</b>
+            <input type="text" name="username" placeholder="Введите логин" required></label>
+        <span th:text="${usernameError}" style="color: #d3101f">Email unique error</span>
+        <label><b>Пароль: </b>
+            <input type="password" placeholder="Введите пароль" name="password" required></label>
+        <span th:text="${passwordError}" style="color: #d3101f">Password confirm error</span>
+        <label><b>Повторите пароль </b>
+            <input type="password" placeholder="Повторите пароль" name="passwordConfirm" required></label>
+        <br/>
+        <button type="submit" class="green">Зарегистрироваться</button>
+    </form>
+</main>
+</body>
+</html>

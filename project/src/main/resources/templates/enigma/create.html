@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Supple - подари гибкий мозг!</title>
+    <link rel="stylesheet" href="../css/commonStyle.css">
+    <link rel="stylesheet" href="../css/genStyle.css">
+
+</head>
+<body>
+
+<div th:replace="~{fragments/header :: navigation}"></div>
+
+<header>
+    <h1><b>Генератор</b> - создай свою головоломку!</h1>
+    <div th:replace="~{fragments/header :: sign}"></div>
+</header>
+<main>
+<!--    <form class="about">-->
+<!--        -->
+<!--        <br/><br/>-->
+<!--    </form>-->
+    <br/>
+    <div id="gen">
+        <div class="enigma">
+            <div class="arrow"><p>Этап 1</p></div>
+                <div th:replace="~{fragments/selector :: enigma-type}"></div>
+                <label>
+                    <b>Название:</b>
+                    <input type="text" maxlength="150" placeholder="Название головоломки">
+                </label>
+            <label class="gen-img"><a th:href="@{/kit/game}"><img alt="Пятнашки" th:src="@{/img/enigma/blocks.png}"></a></label>
+            <label><b>Описание: </b>
+                <textarea name="description" cols="25" rows="7" maxlength="1000"></textarea>
+            </label>
+
+                <div th:replace="~{fragments/selector :: key-type}"></div>
+
+                <label> Сложность:
+                    <input name="gen-difficulty" type="range" min="1" max="10" step="1" value="5">
+                </label>
+
+                <button type="submit" class="green">Создать</button>
+        </div>
+    </div>
+</main>
+</body>
+</html>

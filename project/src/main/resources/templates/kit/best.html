@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Supple - подари гибкий мозг!</title>
+    <link rel="stylesheet" href="../css/commonStyle.css">
+
+</head>
+<body>
+
+<div th:replace="~{fragments/header :: navigation}"></div>
+
+<div th:replace="~{fragments/header :: find}"></div>
+
+<header>
+    <h1><b>Лучшие киты</b> - пройди, что сделали другие!</h1>
+    <div th:replace="~{fragments/header :: sign}"></div>
+</header>
+<main>
+    <div class="kit">
+        <div class="arrow"><p><a th:href="@{/kit/exec}">Пройти!</a></p></div>
+        <div class="img">
+            <img alt="Кит" th:src="@{/img/enigma/blocks.png}"/>
+        </div>
+        <div class="info">
+            <p class="name">
+                Ностальгический кит
+            </p>
+            <p class="author">
+                <b>Автор:</b> <a th:href="@{/profile}">Flamebrier</a>
+            </p>
+            <p>
+                <b>Описание:</b> Кит из простых игр из детства и шифрования
+            </p>
+
+            <div class="stages">
+                <p class="s">Этап 1</p>
+                <p class="n"><a th:href="@{/kit/game}">Пятнашки</a> (сложность 5)</p>
+                <p class="s">Этап 2</p>
+                <p class="n"><a th:href="@{/kit/game}">Виселица</a> (сложность 7)</p>
+                <p class="s">Этап 3</p>
+                <p class="n"><a th:href="@{/kit/game}">Шифрование перестановкой</a> (сложность 2)</p>
+            </div>
+        </div>
+        <div class="buttons simple shine">
+            <button class="yellow" onclick="alert('Добавлено в избранное')">⭐ В избранное</button>
+            <button class="green" onclick="alert('Поделиться')">Генерировать ссылку</button>
+        </div>
+    </div>
+    <div class="kit">
+        <div class="arrow"><p><a th:href="@{/kit/exec}">Пройти!</a></p></div>
+        <div class="img">
+            <img alt="Кит" th:src="@{/img/enigma/gallows.png}"/>
+        </div>
+        <div class="info">
+            <p class="name">
+                Супер-сложный кит
+            </p>
+            <p class="author">
+                <b>Автор:</b> <a th:href="@{/profile}">ArvyB</a>
+            </p>
+            <p>
+                <b>Описание:</b> Кит для тех, кто хочет долго думать
+            </p>
+
+            <div class="stages">
+                <p class="s">Этап 1</p>
+                <p class="n"><a th:href="@{/kit/game}">Шифрование перестановкой</a> (сложность 10)</p>
+                <p class="s">Этап 2</p>
+                <p class="n"><a th:href="@{/kit/game}">Пятнашки</a> (сложность 10)</p>
+                <p class="s">Этап 3</p>
+                <p class="n"><a th:href="@{/kit/game}">Виселица</a> (сложность 10)</p>
+            </div>
+        </div>
+        <div class="buttons simple shine">
+            <button class="yellow small" onclick="alert('Добавлено в избранное')">⭐ В избранное</button>
+            <button class="green big" onclick="alert('Поделиться')">Генерировать ссылку</button>
+        </div>
+    </div>
+</main>
+</body>
+</html>

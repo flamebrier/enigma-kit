@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="navigation">
+    <nav id="nav">
+        <ul>
+            <li><a th:href="@{/kit/generator}">Генератор</a></li>
+            <li><a th:href="@{/kit/best}">Лучшие киты</a></li>
+            <li><a th:href="@{/enigma/all}">Головоломки</a></li>
+            <li><a th:href="@{/kit/random}">Случайный кит!</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div th:fragment="sign">
+    <div id="sign">
+        <a th:href="@{/profile}">
+            <button><img alt="Профиль" th:size="32" th:src="@{/img/face_white_48dp.png}"></button>
+        </a>
+        <a th:href="@{/kit/map}">
+            <button><img alt="Карта" th:size="32" th:src="@{/img/explore_white_48dp.png}"></button>
+        </a>
+    </div>
+</div>
+
+<div th:fragment="find">
+    <form id="find">
+        <label>
+            <input placeholder="Введите код кита" type="url"/>
+            <button>🔍</button>
+        </label>
+    </form>
+</div>
+
+</body>
+</html>

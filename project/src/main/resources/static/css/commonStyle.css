@@ -1,0 +1,719 @@
+@font-face {
+    font-family: Selima; /* Гарнитура шрифта */
+    src: url(../fonts/Selima.otf); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: SourceSansPro; /* Гарнитура шрифта */
+    src: url(../fonts/SourceSansPro-Regular.ttf); /* Путь к файлу со шрифтом */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: SourceSansPro; /* Гарнитура шрифта */
+    src: url(../fonts/SourceSansPro-It.ttf); /* Путь к файлу со шрифтом */
+    font-style: italic;
+}
+
+@font-face {
+    font-family: SourceSansPro; /* Гарнитура шрифта */
+    src: url(../fonts/SourceSansPro-Light.ttf); /* Путь к файлу со шрифтом */
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: SourceSansPro; /* Гарнитура шрифта */
+    src: url(../fonts/SourceSansPro-LightIt.ttf); /* Путь к файлу со шрифтом */
+    font-style: italic;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: SourceSansPro; /* Гарнитура шрифта */
+    src: url(../fonts/SourceSansPro-Bold.ttf); /* Путь к файлу со шрифтом */
+    font-style: normal;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: SourceSansPro; /* Гарнитура шрифта */
+    src: url(../fonts/SourceSansPro-Semibold.ttf); /* Путь к файлу со шрифтом */
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: SourceSansPro; /* Гарнитура шрифта */
+    src: url(../fonts/SourceSansPro-SemiboldIt.ttf); /* Путь к файлу со шрифтом */
+    font-style: italic;
+    font-weight: 500;
+}
+
+html {
+    background-color: #f8f9fa;
+    font-family: SourceSansPro, Arial, sans-serif;
+    color: #1b1e21;
+    font-size: 14px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+button {
+    color: #1b1e21;
+    font-size: 2em;
+    font-family: SourceSansPro, sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+button:hover {
+    cursor: pointer;
+}
+
+main p a:link {
+    color: #0b2e13;
+    text-decoration: none;
+    padding: 0 3px;
+    border-bottom: 1px solid  #28a745;
+    transition: all 0.2s ease-in-out;
+}
+main p a:hover {
+    color: #28a745;
+    border-radius: 10px;
+    border-bottom: 2px solid #28a745;
+}
+main p a:active {
+    color: #cab701;
+    border-bottom: 2px solid #cab701;
+}
+main p a:visited {
+    color: #4e555b;
+    border-bottom: 1px solid  #4e555b;
+}
+main p a:visited:hover {
+    color: #28a745;
+    border-radius: 10px;
+    border-bottom: 2px solid #28a745;
+}
+
+/**
+ * Меню
+ */
+nav {
+    background-image: url("../img/bg_leaves2.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    text-align: center;
+    border-bottom-left-radius: 100% 2vmax;
+    border-bottom-right-radius: 100% 2vmax;
+    overflow: hidden;
+    height: max-content;
+    transition: all 0.2s ease-in-out;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0 auto;
+    padding-left: 0;
+    border-radius: 20%;
+}
+
+nav ul:before {
+    content: "Supple";
+    color: #e0a800;
+    font-family: Selima, sans-serif;
+    font-size: 5em;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    left: 0;
+    top: 0;
+    text-transform: none;
+}
+
+nav ul {
+    background-image: url("../img/bg_seamless3.png");
+    list-style: none;
+    margin: 0 auto;
+    padding-left: 0;
+    border-radius: 20%;
+}
+
+nav li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+nav li:after {
+    content: "|";
+    color: white;
+    font-size: 2em;
+    font-weight: 300;
+    display: inline-block;
+}
+
+nav li:last-child:after {
+    content: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin: 1vh  0.25vw;
+    padding: 1vh 0.25vw;
+    border-left: 0.25em solid rgba(224, 168, 0, 0);
+    border-right: 0.25em solid rgba(224, 168, 0, 0);
+    transition: all 0.5s ease-in-out;
+}
+
+nav a:hover {
+    border-radius: 1vmax;
+    border-left: 0.25em solid rgba(224, 168, 0, 1);
+    border-right: 0.25em solid rgba(224, 168, 0, 1);
+}
+
+nav .tmp {
+    color: rgba(224, 168, 0, 1);
+}
+
+nav .tmp:hover {
+    border-left: 0.25em solid rgba(224, 168, 0, 0);
+    border-right: 0.25em solid rgba(224, 168, 0, 0);
+}
+
+/*
+ * Строка для ссылки
+ */
+#find {
+    height: 2em;
+    margin-top: -1em;
+    margin-bottom: 1.5em;
+    width: 100%;
+}
+
+#find button {
+    vertical-align: top;
+    display: inline-block;
+    height: 3em;
+    border: 0;
+    background-color: transparent;
+    font-size: 2em;
+    margin-top: -0.5em;
+    transition: all 0.2s ease-in-out;
+}
+
+#find button:hover, #find button:active {
+    font-size: 4em;
+    margin-top: -1em;
+    margin-left: -0.5em;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#find input {
+    display: inline-block;
+    margin-left: 5%;
+
+    width: 85%;
+    height: 3em;
+    border: 0;
+    background-color: transparent;
+    font-size: 1.5em;
+    vertical-align: middle;
+}
+
+/*
+ * Заголовок раздела
+ */
+header {
+    width: 100%;
+    background-color: #0b2e13;
+    border-top-left-radius: 100% 3vh;
+    border-bottom-right-radius: 100% 3vh;
+    float: left;
+    overflow: hidden;
+    vertical-align: middle;
+    background-image: url("../img/bg_seamless3.png");
+    background-size: 25vmin;
+    background-attachment: fixed;
+    background-blend-mode: screen;
+
+    margin-bottom: 2vh;
+}
+header h1 {
+    padding: 1vh 2vw;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    float: left;
+    width: 80%;
+    white-space: normal;
+    background-color: #e0a800;
+    border-top-right-radius: 25% 5vh;
+    border-bottom-right-radius: 35% 5vh;
+    margin: 0;
+}
+
+header b {
+    font-size: 2.5em;
+}
+
+/*
+ * Панель пользователя
+ */
+#sign {
+    position: relative;
+    display: inline-block;
+    float: right;
+    text-align: center;
+    overflow: hidden;
+    width: 15vmin;
+}
+#sign button {
+    color: white;
+    text-decoration: none;
+    font-size: 7vmin;
+    max-width: 100px;
+    text-align: center;
+    transition: all 0.5s ease;
+    border: none;
+    background-color: transparent;
+}
+
+#sign button:hover {
+    transform: rotate(-30deg);
+}
+
+#sign button:active {
+    transform: rotate(30deg);
+}
+
+#sign button img {
+    width: 36px;
+}
+
+/*
+ * Сияние кнопок
+ */
+.yellow {
+    color: #1b1e21;
+    background-color: #cab701;
+}
+
+.green {
+    background-color: #0b2e13;
+    color: white;
+}
+.grey {
+    background-color: lightgray;
+    color: #1b1e21;
+}
+
+.simple button {
+    background-image: url("../img/bg_seamless3.png");
+    background-size: 25vmin;
+    background-attachment: fixed;
+    background-blend-mode: screen;
+
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+.shine button:after {
+    content: "";
+    height: 400%;
+    left: -200%;
+    opacity: 0;
+    position: absolute;
+    top: 200%;
+    transform: rotate(-30deg);
+    width: 200%;
+    background: rgba(255, 255, 255, 0.13);
+    background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.13) 0%,
+            rgba(255, 255, 255, 0.13) 77%,
+            rgba(255, 255, 255, 0.6) 92%,
+            rgba(255, 255, 255, 0.0) 100%
+    );
+}
+
+.shine button:hover {
+    cursor: pointer;
+}
+
+.shine button:hover:after {
+    left: -50%;
+    opacity: 1;
+    top: -100%;
+    transition-duration: 0.8s, 0.8s, 0.15s;
+    transition-property: left, top, opacity;
+    transition-timing-function: ease;
+}
+
+.shine button:active:after {
+    opacity: 0;
+}
+
+.simple button a:link {
+    color: #1b1e21;
+    text-decoration: none;
+}
+
+/*
+ * Стрелки кита
+ */
+.kit .arrow:before {
+    width: 0;
+    height: 0;
+    font-size: 0;
+    content: "";
+    border: 60px solid;
+    border-color: #28a745 #28a745 #28a745 transparent;
+    border-radius: 10px 0 0 10px;
+    position: relative;
+    left: -60px;
+    top: 60px;
+}
+
+.kit .arrow {
+    width: 90px;
+    height: 120px;
+    background-color: #28a745;
+    position: absolute;
+    left: 60px;
+    font-size: 0;
+    margin-top: -80px;
+    margin-left: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.kit .arrow:after {
+    width: 0;
+    height: 0;
+    font-size: 0;
+    content: "";
+    border: 60px solid;
+    border-color: transparent transparent transparent #28a745;
+    position: relative;
+    left: 90px;
+    bottom: 103px;
+}
+
+.kit .arrow p {
+    z-index: 1000;
+    white-space: nowrap;
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: relative;
+    top: -20px;
+
+    background-color: #28a745;
+    background-image: url("../img/bg_seamless3.png");
+    background-size: 25vmin;
+    background-attachment: fixed;
+    background-blend-mode: screen;
+    background-position: center;
+    padding: 30px 70px 30px 55px;
+    border-radius: 10px 100px 100px 10px;
+    box-shadow: inset 10px 10px 10px 10px #28a745;
+}
+.kit .arrow a {
+    text-decoration: none;
+    border-bottom: none;
+    color: white;
+    margin-left: -110px;
+
+    padding: 30px 70px 30px 55px;
+    border-radius: 10px 100px 100px 10px;
+}
+.kit .arrow:hover {
+    margin-left: 40px;
+}
+.kit .arrow a:hover {
+    color:white;
+}
+
+/* ------------------------
+ * Просмотр кита
+   ------------------------*/
+main {
+    padding: 2%;
+    width: 96%;
+    display: grid;
+}
+@media only screen and (min-width: 800px) {
+    .kit {
+        column-count: 3;
+        display: inline-flex;
+    }
+    .kit .img, .kit .info, .kit .buttons {
+        display: inline-block;
+        min-width: 25%;
+    }
+    .kit .img, .kit .info {
+        margin-right: 20px;
+        vertical-align: middle;
+        max-width: max-content;
+    }
+}
+@media only screen and (max-width: 650px) {
+    .kit .img, .kit .info {
+        display: block;
+        width: 98%;
+        vertical-align: middle;
+    }
+    .kit .buttons {
+        display: block;
+    }
+}
+@media only screen and (min-width: 650px) {
+    .kit .img, .kit .info {
+        display: inline-block;
+        max-width: 45%;
+        margin-right: 20px;
+        vertical-align: middle;
+    }
+    .kit .buttons {
+        display: block;
+    }
+}
+.kit {
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 1em;
+    padding: 20px;
+    margin: 2vh auto;
+    white-space: normal;
+    overflow-x: auto;
+    width: 90%;
+}
+.kit .img, .kit .info, .kit .buttons {
+    margin-left: auto;
+}
+.kit .img {
+    text-align: center;
+}
+.kit .img img {
+    max-height: 30vh;
+    border-radius: 10px;
+    width: auto;
+    max-width: 100%;
+}
+.kit .info {
+    min-width: min-content;
+}
+.kit .info .name {
+    font-size: xx-large;
+    margin: 0;
+}
+.kit .info .author {
+    text-align: right;
+    font-style: italic;
+}
+.kit .info .stages p {
+    margin: 0;
+    white-space: normal;
+    display: block;
+}
+.kit .info .stages .s {
+    font-weight: 600;
+    width: 20%;
+    margin-right: 1em;
+    white-space: nowrap;
+}
+.kit .info .stages .n {
+    min-width: min-content;
+    width: 70%;
+}
+.kit .info .stages .s:after {
+    content: " → ";
+    position: relative;
+    margin-left: 50%;
+    left: -0.75em;
+    display: inline-block;
+    font-size: 2em;
+}
+.kit .info .stages .s, .kit .info .stages .n {
+    display: inline-block;
+    vertical-align: middle;
+}
+.kit .buttons button {
+    font-size: 1.7em;
+    margin: 5px 0;
+    width: 100%;
+    min-width: min-content;
+}
+
+/**
+ * Панель пользователя
+ */
+#map {
+    display: block;
+    width: auto;
+    margin: 0;
+}
+.map {
+    display: inline-block;
+    vertical-align: top;
+}
+.user {
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 1em;
+    padding: 20px;
+    margin: 4vh 1vw;
+    white-space: normal;
+    max-width: 300px;
+    min-width: min-content;
+    text-align: center;
+    display: inline-block;
+}
+.user img {
+    border-radius: 100% 100%;
+    width: 100%;
+}
+.user h1 {
+    text-align: left;
+    color: #28a745;
+}
+.user p {
+    text-align: left;
+    width: 100%;
+}
+.user b {
+    text-align: left;
+    width: 60%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.user button {
+    margin: 0 auto;
+}
+@media only screen and (min-width: 800px) {
+    .map {
+        width: 70%;
+        margin: 2vh 0;
+    }
+    .user {
+        width: 23%;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .map {
+        width: 70%;
+        margin: 2vh 0;
+    }
+    .user {
+        width: 25%;
+    }
+}
+@media only screen and (min-width: 450px) {
+    .map {
+        width: 60%;
+        margin: 2vh 0;
+    }
+    .user {
+        width: 30%;
+    }
+}
+@media only screen and (min-width: 1000px) {
+    .map {
+        width: 70%;
+        margin: 2vh 0;
+    }
+    .user {
+        width: 15%;
+    }
+}
+@media only screen and (min-width: 1500px) {
+    .map .kit {
+        width: 84%;
+        margin: 2vh 0;
+    }
+    .user {
+        width: 15%;
+    }
+}
+
+.mini-menu {
+    width: 100%;
+    text-align: center;
+}
+.mini-menu li {
+    display: inline-block;
+    font-size: 1.5em;
+    color: #e0a800;
+    font-family: SourceSansPro, sans-serif;
+    padding: 10px;
+}
+.mini-menu a:link {
+    color: darkslategray;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+    padding: 0 3px;
+}
+.mini-menu a:hover {
+    color: #e0a800;
+    border-radius: 10px;
+    border-top: 2px solid #e0a800;
+}
+.mini-menu a:active {
+    color: #cab701;
+    border-top: 2px solid #cab701;
+}
+.mini-menu a:visited {
+    color: #4e555b;
+    border-top: 1px solid  #e0a800;
+}
+.mini-menu a:visited:hover {
+    color: #e0a800;
+    border-radius: 10px;
+    border-top: 2px solid #e0a800;
+}
+
+
+/*
+* Редактирование профиля
+ */
+#profile {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+}
+#profile form {
+    width: 75%;
+    display: inline-block;
+}
+#profile label {
+    display: block;
+    padding: 5px 15px;
+}
+#profile b {
+    width: 200px;
+    display: inline-block;
+}
+#profile img {
+    display: inline-block;
+    width: 24%;
+    border-radius: 100% 100%;
+    vertical-align: top;
+}

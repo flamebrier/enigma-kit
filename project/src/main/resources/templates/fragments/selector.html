@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="enigma-type">
+    <label>Название:
+        <select name="gen_name" th:field="*{enigmas[__${itemStat.index}__].enigmaType}">
+            <option th:each="enigmaType : ${T(com.pri.aa.enigma.models.EnigmaType).values()}"
+                    th:value="${enigmaType}" th:text="${enigmaType.displayValue}"></option>
+        </select>
+    </label>
+</div>
+
+<div th:fragment="key-type">
+    <label>
+        <!--<input name="gen-key" type="radio">Число
+        <input name="gen-key" type="radio">Цифры
+        <input name="gen-key" type="radio">Буквы-->
+        <p>Тип ключа:</p>
+        <div th:each="keyType : ${T(com.pri.aa.enigma.models.KeyType).values()}" style="display: inline;">
+            <input type="radio" name="gen-key" style="display: inline;">
+            <p th:text="${keyType.displayValue}" style="display: inline;"></p>
+        </div>
+    </label>
+</div>
+
+<!--<label>Тип ключа:-->
+<!--    <div th:each="key : ${T(com.pri.aa.enigma.models.KeyType).values()}">-->
+<!--        <input type="radio" th:value="key">-->
+<!--        <label th:text="${key.displayValue}"></label>-->
+<!--    </div>-->
+<!--</label>-->
+
+</body>
+</html>
