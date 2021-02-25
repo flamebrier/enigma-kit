@@ -32,16 +32,16 @@
 </textarea>
                 </label>
             </div>
-            <div class="enigma" th:each="enigma, iter : ${kit.enigmas}">
-                <div class="arrow"><p th:text="${'Этап ' + iter.count}"></p></div>
+            <div class="enigma" th:each="enigma, itemStat : *{enigmas}">
+                <div class="arrow"><p th:text="${'Этап ' + itemStat.count}"></p></div>
                 <div id="custform">
                     <div th:replace="fragments/selector :: enigma-type"></div>
 
                     <label class="gen-img"><a th:href="@{/kit/game}"><img alt="Пятнашки"
                                                                           th:src="@{/img/enigma/blocks.png}"></a></label>
-                    <label><b>Описание: </b>
-                        классическая игра, выдающая после прохождения код для следующего задания. Результат, полученный
-                        до этого, влияет на количество пятнашек в наборе</label>
+                    <label><b>Описание: </b></label>
+                    <input th:field="*{enigmas[__${itemStat.index}__].description}"
+                           value="классическая игра, выдающая после прохождения код для следующего задания. Результат, полученный до этого, влияет на количество пятнашек в наборе">
 
                     <div th:replace="fragments/selector :: key-type"></div>
 

@@ -29,7 +29,7 @@
                     Ностальгический кит
                 </p>
                 <p class="author">
-                    <b>Автор:</b> <a th:href="@{/profile}">Flamebrier</a>
+                    <b>Автор:</b> <a th:href="@{|/profile/${username}|}" th:text="${username}"></a>
                 </p>
                 <p th:utext="${'<b>Описание:</b> ' + kit.description}">
                      Кит из простых игр из детства и шифрования
