@@ -1,8 +1,6 @@
 package com.pri.aa.enigma.models;
 
 import javax.persistence.*;
-import javax.validation.constraints.Null;
-import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -13,6 +11,8 @@ public class Enigma {
     private Long id;
     @Enumerated(EnumType.STRING)
     private EnigmaType enigmaType;
+    @Enumerated(EnumType.STRING)
+    private KeyType keyType;
     @Column(length = 1000)
     private String description;
     private Short complexity;
@@ -40,6 +40,14 @@ public class Enigma {
 
     public void setEnigmaType(EnigmaType enigmaType) {
         this.enigmaType = enigmaType;
+    }
+
+    public KeyType getKeyType() {
+        return keyType;
+    }
+
+    public void setKeyType(KeyType keyType) {
+        this.keyType = keyType;
     }
 
     public String getDescription() {
