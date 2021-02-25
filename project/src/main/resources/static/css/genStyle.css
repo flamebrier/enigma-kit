@@ -234,6 +234,7 @@ main {
 
 #submit input:hover {
     font-weight: 600;
+    cursor: pointer;
 }
 
 #submit input:nth-child(1) {
