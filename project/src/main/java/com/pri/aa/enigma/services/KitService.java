@@ -1,6 +1,7 @@
 package com.pri.aa.enigma.services;
 
 import com.pri.aa.enigma.models.Kit;
+import com.pri.aa.enigma.models.User;
 import com.pri.aa.enigma.repositories.KitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,10 @@ public class KitService {
 
     public Optional<Kit> getById(Long id) {
         return kitRepository.findById(id);
+    }
+
+    public List<Kit> getAllByUser(User user) {
+        return kitRepository.findAllByUser(user);
     }
 
     public void delete(Long id) {

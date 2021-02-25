@@ -6,6 +6,8 @@ import com.pri.aa.enigma.models.User;
 import com.pri.aa.enigma.repositories.RoleRepository;
 import com.pri.aa.enigma.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -58,6 +60,11 @@ public class UserService {
         }
 
         userRepository.save(user);
+    }
+
+    public User getCurrentAuthUser() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return findByUsername(auth.getName());
     }
 
     public void delete(Long id) {

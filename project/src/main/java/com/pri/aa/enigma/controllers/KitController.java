@@ -5,6 +5,7 @@ import com.pri.aa.enigma.models.Kit;
 import com.pri.aa.enigma.models.User;
 import com.pri.aa.enigma.services.EnigmaService;
 import com.pri.aa.enigma.services.KitService;
+import com.pri.aa.enigma.services.PictureService;
 import com.pri.aa.enigma.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -23,13 +24,15 @@ public class KitController {
     private KitService kitService;
     private EnigmaService enigmaService;
     private UserService userService;
+    private PictureService pictureService;
 
     @Autowired
     public KitController(KitService kitService, EnigmaService enigmaService,
-                         UserService userService) {
+                         UserService userService, PictureService pictureService) {
         this.kitService = kitService;
         this.enigmaService = enigmaService;
         this.userService = userService;
+        this.pictureService = pictureService;
     }
 
     @GetMapping("kit/generator")
@@ -42,9 +45,7 @@ public class KitController {
         List<Enigma> enigmas = new ArrayList<>();
         enigmas.add(enigma);
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User curUser = userService.findByUsername(auth.getName());
-        kit.setUser(curUser);
+        kit.setUser(userService.getCurrentAuthUser());
 
         kit.setEnigmas(enigmas);
 
@@ -81,13 +82,20 @@ public class KitController {
             enigmaService.saveAll(kit.getEnigmas());
         }
 
+        kit.setUser(userService.getCurrentAuthUser());
         kitService.save(kit);
 
         return "redirect:/kit/map";
     }
 
     @GetMapping("kit/map")
-    public String getKitMapView() {
+    public String getKitMapView(Model model) {
+        User curUser = userService.getCurrentAuthUser();
+        List<Kit> kits = kitService.getAllByUser(curUser);
+        model.addAttribute("username", curUser.getUsername());
+        model.addAttribute("kits", kits);
+        model.addAttribute("ava", pictureService.getPictureString(
+                curUser.getPhotoLink()).get());
         return "kit/map";
     }
 
@@ -99,5 +107,15 @@ public class KitController {
     @GetMapping("kit/random")
     public String getKitRandom() {
         return "kit/random";
+    }
+
+    @GetMapping("kit/delete")
+    public String deleteKit(@RequestParam(value = "id") Long id) {
+        Optional<Kit> curKit = kitService.getById(id);
+        User curUser = userService.getCurrentAuthUser();
+        if (curKit.isPresent() &&
+                curUser.getUsername() == curKit.get().getUser().getUsername())
+        kitService.delete(id);
+        return "redirect:/kit/map";
     }
 }

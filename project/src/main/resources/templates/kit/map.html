@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Supple - подари гибкий мозг!</title>
-    <link rel="stylesheet" href="../css/commonStyle.css">
+    <link rel="stylesheet" th:href="@{/css/commonStyle.css}">
 
 </head>
 <body>
@@ -18,7 +18,41 @@
 
 <main id="map">
     <div class="map">
-        <div class="kit">
+
+        <div class="kit" th:each="kit : ${kits}">
+            <div class="arrow"><p><a th:href="@{/kit/exec}">Пройти!</a></p></div>
+            <div class="img">
+                <img alt="Кит" th:src="@{/img/enigma/blocks.png}"/>
+            </div>
+            <div class="info">
+                <p class="name" th:text="${kit.name}">
+                    Ностальгический кит
+                </p>
+                <p class="author">
+                    <b>Автор:</b> <a th:href="@{/profile}">Flamebrier</a>
+                </p>
+                <p th:utext="${'<b>Описание:</b> ' + kit.description}">
+                     Кит из простых игр из детства и шифрования
+                </p>
+
+                <div class="stages" th:each="enigma, iter : ${kit.enigmas}">
+                    <p class="s" th:text="${'Этап ' + iter.count}"></p>
+                    <p class="n"><a th:href="@{/kit/game}">Пятнашки</a> (сложность 5)</p>
+                </div>
+            </div>
+
+            <div class="buttons simple shine">
+                <button class="green" onclick="alert('Поделиться')">Генерировать ссылку</button>
+            </div>
+            <div class="buttons simple shine">
+                <form th:action="@{/kit/delete/}" method="get">
+                    <input name="id" th:value="${kit.id}" type="hidden">
+                    <input type="submit" value="Удалить">
+                </form>
+            </div>
+        </div>
+
+        <!--<div class="kit">
             <div class="arrow"><p><a th:href="@{/kit/exec}">Пройти!</a></p></div>
             <div class="img">
                 <img alt="Кит" th:src="@{/img/enigma/blocks.png}"/>
@@ -57,7 +91,7 @@
                     Супер-сложный кит
                 </p>
                 <p class="author">
-                    <b>Автор:</b> <a th:href="@{/profile}">ArvyB</a>
+                    <b>Автор:</b> <a th:href="@{/profile/arvyb}">ArvyB</a>
                 </p>
                 <p>
                     <b>Описание:</b> Кит для тех, кто хочет долго думать
@@ -75,11 +109,12 @@
             <div class="buttons simple shine">
                 <button class="green big" onclick="alert('Поделиться')">Генерировать ссылку</button>
             </div>
-        </div>
+        </div>-->
     </div>
     <div class="user simple shine">
-        <img src="/img/ava/flamebrier.jpg" alt="flamebrier">
-        <h1>flamebrier</h1>
+        <!--<img src="/img/ava/flamebrier.jpg" alt="flamebrier">-->
+        <img th:src="@{'data:image/jpg;base64,' + ${ava}}">
+        <h1><p th:text="${username}"></p></h1>
         <a th:href="@{/profile}">
             <button class="grey">Редактировать</button>
         </a>

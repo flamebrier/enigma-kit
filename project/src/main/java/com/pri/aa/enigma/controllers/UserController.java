@@ -1,6 +1,9 @@
 package com.pri.aa.enigma.controllers;
 
+import com.pri.aa.enigma.models.Kit;
 import com.pri.aa.enigma.models.User;
+import com.pri.aa.enigma.services.KitService;
+import com.pri.aa.enigma.services.PictureService;
 import com.pri.aa.enigma.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,57 +22,52 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.Principal;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @Controller
 public class UserController {
     private UserService userService;
+    private KitService kitService;
+    private PictureService pictureService;
     @Value("${proj.basedir}")
     private String projectPath;
     private String pathToAvatars = "/src/main/resources/static/img/ava/";
 
     @Autowired
-    public void setUserService(UserService userService) {
+    public UserController(UserService userService,
+                          KitService kitService, PictureService pictureService) {
         this.userService = userService;
+        this.kitService = kitService;
+        this.pictureService = pictureService;
     }
 
-    @GetMapping("profile")
-    public String getPersonalView(Principal principal, Model model) {
-        User curUser = userService.findByUsername(principal.getName());
-        model.addAttribute("userForm", curUser);
-        model.addAttribute("ava",
-                getPhotoBase64(curUser.getPhotoLink()).orElse("no photo"));
-        return "user/profile";
-    }
+    @GetMapping(value = {"profile", "profile/{username}"})
+    public String getPersonalView(
+            @PathVariable Optional<String> username,
+            Principal principal, Model model) {
 
-    @GetMapping(value = "/getPhoto",
-            produces = {MediaType.IMAGE_JPEG_VALUE,
-            MediaType.IMAGE_PNG_VALUE})
-    @ResponseBody
-    public Optional<String> getPhotoBase64(String photoLink) {
-        File file = new File(projectPath + pathToAvatars + photoLink);
-        Optional<String> image;
-        try {
-            image = Optional.of(Base64Utils.encodeToString(
-                    new FileInputStream(
-                            new File(projectPath +
-                                    pathToAvatars + photoLink)).readAllBytes()));
-        } catch (Exception e) {
-            try {
-                image = Optional.of(
-                    Base64Utils.encodeToString(
-                        new FileInputStream(
-                            new File(projectPath +
-                                    pathToAvatars + "nophoto.png")).readAllBytes()
-                    )
-                );
-            } catch (Exception ex) {
-                image = Optional.empty();
+        Optional<User> curUser;
+        if (username.isPresent()) {
+            curUser = Optional.ofNullable(userService.findByUsername(username.get()));
+            if (curUser.isPresent()) {
+                List<Kit> kits = kitService.getAllByUser(curUser.get());
+                model.addAttribute("kits", kits);
+                model.addAttribute("username", curUser.get().getUsername());
+                model.addAttribute("ava",pictureService.getPictureString(
+                                curUser.get().getPhotoLink()).orElse("no photo"));
+                return "kit/map";
+            } else {
+                return "error/404";
             }
         }
 
-        return image;
+        curUser = Optional.ofNullable(userService.findByUsername(principal.getName()));
+        model.addAttribute("userForm", curUser.get());
+        model.addAttribute("ava", pictureService.getPictureString(
+                curUser.get().getPhotoLink()).orElse("no photo"));
+        return "user/profile";
     }
 
     @PostMapping("user/update")
