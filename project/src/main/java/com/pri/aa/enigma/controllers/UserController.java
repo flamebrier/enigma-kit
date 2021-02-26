@@ -81,6 +81,7 @@ public class UserController {
             model.addAttribute("nonDataError", "Нет данных для обновления");
             User curUser = userService.findByUsername(principal.getName());
             model.addAttribute("userForm", curUser);
+            model.addAttribute("ava", pictureService.getPictureString(curUser.getPhotoLink()).get());
             return "user/profile";
         }
 
@@ -136,10 +137,11 @@ public class UserController {
         }
 
         if (hasErrors) {
+            model.addAttribute("userForm", userForm);
             return "user/registration";
         }
         userService.save(userForm);
-        return "redirect:/";
+        return "redirect:/profile";
     }
 
     @GetMapping("login")

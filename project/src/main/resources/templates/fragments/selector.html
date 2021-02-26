@@ -18,7 +18,7 @@
         <input name="gen-key" type="radio">Буквы-->
         <p>Тип ключа:</p>
         <div th:each="keyType : ${T(com.pri.aa.enigma.models.KeyType).values()}" style="display: inline;">
-            <input type="radio" name="gen-key" style="display: inline;">
+            <input type="radio" name="gen-key" th:field="*{enigmas[__${itemStat.index}__].keyType}" th:value="${keyType}" style="display: inline;">
             <p th:text="${keyType.displayValue}" style="display: inline;"></p>
         </div>
     </label>
