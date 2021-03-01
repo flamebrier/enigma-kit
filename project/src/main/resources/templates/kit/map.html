@@ -37,7 +37,12 @@
 
                 <div class="stages" th:each="enigma, iter : ${kit.enigmas}">
                     <p class="s" th:text="${'Этап ' + iter.count}"></p>
-                    <p class="n"><a th:href="@{/kit/game}">Пятнашки</a> (сложность 5)</p>
+                    <p class="n" th:if="${enigma.enigmaType == null}" th:text="${'Не указано'}"></p>
+                    <p class="n" th:unless="${enigma.enigmaType == null}" th:text="${'Сложность ' + enigma.complexity}">
+                        <p style="display: inline;" th:unless="${enigma.enigmaType == null}"><a th:href="@{/kit/game}" th:text="${enigma.enigmaType.displayValue}"></a></p>
+                    </p>
+
+                    <!--<p class="n"><a th:href="@{/kit/game}">Пятнашки</a> (сложность 5)</p>-->
                 </div>
             </div>
 
