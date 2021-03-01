@@ -25,14 +25,20 @@
                 <img alt="Кит" th:src="@{/img/enigma/blocks.png}"/>
             </div>
             <div class="info">
-                <p class="name" th:text="${kit.name}">
-                    Ностальгический кит
+                <p class="name" th:if="${kit.name == null || kit.name.length() < 1 }" th:text="${'Без названия'}">
+
+                </p>
+                <p class="name" th:if="${kit.name != null && kit.name.length() > 0 }" th:text="${kit.name}">
+
                 </p>
                 <p class="author">
                     <b>Автор:</b> <a th:href="@{|/profile/${username}|}" th:text="${username}"></a>
                 </p>
-                <p th:utext="${'<b>Описание:</b> ' + kit.description}">
-                     Кит из простых игр из детства и шифрования
+                <p th:if="${kit.description == null || kit.description.length() < 1}"
+                   th:utext="${'<b>Описание:</b> Нет'}">
+                </p>
+                <p th:if="${kit.description != null && kit.description.length() > 0}"
+                   th:utext="${'<b>Описание:</b> ' + kit.description}">
                 </p>
 
                 <div class="stages" th:each="enigma, iter : ${kit.enigmas}">

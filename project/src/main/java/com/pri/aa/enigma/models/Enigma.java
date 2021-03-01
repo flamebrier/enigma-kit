@@ -1,7 +1,10 @@
 package com.pri.aa.enigma.models;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name = "enigma")
@@ -13,6 +16,9 @@ public class Enigma {
     private EnigmaType enigmaType;
     @Enumerated(EnumType.STRING)
     private KeyType keyType;
+    @Transient
+    private Optional<MultipartFile> img;
+    private String imgLink;
     @Column(length = 1000)
     private String description;
     private Short complexity;
@@ -48,6 +54,22 @@ public class Enigma {
 
     public void setKeyType(KeyType keyType) {
         this.keyType = keyType;
+    }
+
+    public Optional<MultipartFile> getImg() {
+        return img;
+    }
+
+    public void setImg(Optional<MultipartFile> img) {
+        this.img = img;
+    }
+
+    public String getImgLink() {
+        return imgLink;
+    }
+
+    public void setImgLink(String imgLink) {
+        this.imgLink = imgLink;
     }
 
     public String getDescription() {

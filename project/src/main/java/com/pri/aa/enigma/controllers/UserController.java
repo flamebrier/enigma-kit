@@ -92,19 +92,12 @@ public class UserController {
         }
 
         if (file.getSize() != 0) {
-            String uploadPath = projectPath + pathToAvatars;
-            File uploadDir = new File(uploadPath);
-            if (!uploadDir.exists()) {
-                uploadDir.mkdir();
+            Optional<String> filePath = pictureService.savePictureLocaly(file, pathToAvatars);
+            if (filePath.isPresent()) {
+                userFromDb.setPhotoLink(filePath.get());
+            } else {
+                userFromDb.setPhotoLink("nophoto.png");
             }
-
-            String uuidFile = UUID.randomUUID().toString();
-            String filePath = uuidFile + file.getOriginalFilename()
-                    .substring(file.getOriginalFilename().lastIndexOf('.'));
-            /*String resPath = uploadDir + "/" + filePath;
-            file.transferTo(new File((resPath)));*/
-            Files.write(Path.of(uploadPath + filePath), file.getBytes());
-            userFromDb.setPhotoLink(filePath);
         }
 
         userService.update(userFromDb);

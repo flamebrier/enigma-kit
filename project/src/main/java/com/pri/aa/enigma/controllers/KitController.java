@@ -25,6 +25,7 @@ public class KitController {
     private EnigmaService enigmaService;
     private UserService userService;
     private PictureService pictureService;
+    private String enigmaPath = "/src/main/resources/static/img/enigma/";
 
     @Autowired
     public KitController(KitService kitService, EnigmaService enigmaService,
@@ -79,6 +80,20 @@ public class KitController {
     @PostMapping("kit/save")
     public String saveKit(@ModelAttribute Kit kit, Model model) {
         if (kit.getEnigmas() != null) {
+            for (Enigma enigma : kit.getEnigmas()){
+                if (enigma.getImg().isPresent() &&
+                        enigma.getImg().get().getSize() != 0) {
+                    Optional<String> filePath =
+                            pictureService.savePictureLocaly(
+                                    enigma.getImg().get(), enigmaPath);
+                    if (filePath.isPresent()) {
+                        enigma.setImgLink(filePath.get());
+                    } else {
+                        enigma.setImgLink("nophoto.png");
+                    }
+                }
+            }
+
             enigmaService.saveAll(kit.getEnigmas());
         }
 

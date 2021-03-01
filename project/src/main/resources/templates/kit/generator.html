@@ -17,7 +17,7 @@
     <div th:replace="~{fragments/header :: sign}"></div>
 </header>
 <main>
-    <form action="/kit/save" method="post" th:object="${kit}">
+    <form enctype="multipart/form-data" action="/kit/save" method="post" th:object="${kit}">
         <br/>
         <div id="gen">
             <div class="about">
@@ -37,8 +37,10 @@
                 <div id="custform">
                     <div th:replace="fragments/selector :: enigma-type"></div>
 
-                    <label class="gen-img"><a th:href="@{/kit/game}"><img alt="Пятнашки"
-                                                                          th:src="@{/img/enigma/blocks.png}"></a></label>
+                    <label class="gen-img">
+                        <b>Изображение: </b>
+                        <input th:field="*{enigmas[__${itemStat.index}__].img}" type="file" name="enigmaimg">
+                    </label>
                     <label><b>Описание: </b></label>
                     <input th:field="*{enigmas[__${itemStat.index}__].description}"
                            value="классическая игра, выдающая после прохождения код для следующего задания. Результат, полученный до этого, влияет на количество пятнашек в наборе">
