@@ -33,6 +33,8 @@
         <br/>
         <label><b>Загрузите аватар: </b><input type="file" name="ava"></label>
         <span th:text="${nonDataError}" style="color: #d3101f">No data error</span>
+        <span th:text="${errorPass}" style="color: #d3101f">Passes no equals</span>
+        <span th:text="${sucessPass}" style="color: #18913a">Pass changed</span>
         <br/>
         <button type="submit" class="green">Сохранить</button>
     </form>

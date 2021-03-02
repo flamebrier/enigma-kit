@@ -61,17 +61,21 @@ public class KitController {
         Optional<Kit> kit = kitService.getById(id);
 
         if (kit.isPresent()) {
-            Enigma enigma = new Enigma();
-            enigmaService.save(enigma);
+            if (kit.get().getEnigmas().size() < 5 &&
+                    kit.get().getUser().getUsername() ==
+                            userService.getCurrentAuthUser().getUsername()) {
+                Enigma enigma = new Enigma();
+                enigmaService.save(enigma);
 
-            kit.get().getEnigmas().add(enigma);
-            kitService.save(kit.get());
-            model.addAttribute("kit", kit.get());
+                kit.get().getEnigmas().add(enigma);
+                kitService.save(kit.get());
+                model.addAttribute("kit", kit.get());
+            } else {
+                model.addAttribute("error", "Максимальное число энигм в ките - 5");
+            }
+
         } else {
-            List<Enigma> enigmas = List.of(new Enigma());
-            Kit curKit = new Kit();
-            curKit.setEnigmas(enigmas);
-            model.addAttribute("kit", curKit);
+            return "redirect:/kit/generator";
         }
 
         return "kit/generator";

@@ -7,24 +7,17 @@ import com.pri.aa.enigma.services.PictureService;
 import com.pri.aa.enigma.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.Base64Utils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Controller
 public class UserController {
@@ -74,21 +67,24 @@ public class UserController {
     public String updateUser(User newUser, Principal principal,
                              @RequestParam("ava")MultipartFile file,
                              Model model) throws IOException {
-        User userFromDb = userService.findByUsername(principal.getName());
+        User userFromDb = userService.getCurrentAuthUser();
 
         if (newUser.getPassword().isBlank() &&
                 file.getOriginalFilename().isBlank()) {
             model.addAttribute("nonDataError", "Нет данных для обновления");
-            User curUser = userService.findByUsername(principal.getName());
-            model.addAttribute("userForm", curUser);
-            model.addAttribute("ava", pictureService.getPictureString(curUser.getPhotoLink()).get());
+            model.addAttribute("userForm", userFromDb);
+            model.addAttribute("ava", pictureService.getPictureString(userFromDb.getPhotoLink()).get());
             return "user/profile";
         }
 
-        if (!newUser.getPassword().isBlank() &&
-                newUser.getPassword().equals(newUser.getPasswordConfirm())) {
-            userFromDb.setPassword(newUser.getPassword());
-            userFromDb.setPasswordConfirm(newUser.getPasswordConfirm());
+        if (!newUser.getPassword().isBlank()) {
+            if (newUser.getPassword().equals(newUser.getPasswordConfirm())) {
+                userFromDb.setPassword(newUser.getPassword());
+                userFromDb.setPasswordConfirm(newUser.getPasswordConfirm());
+                model.addAttribute("sucessPass", "Пароль успешно сохранён");
+            } else {
+                model.addAttribute("errorPass", "Пароли не совпадают");
+            }
         }
 
         if (file.getSize() != 0) {
@@ -101,7 +97,10 @@ public class UserController {
         }
 
         userService.update(userFromDb);
-        return "redirect:/profile";
+        model.addAttribute("userForm", userFromDb);
+        model.addAttribute("ava", pictureService.getPictureString(userFromDb.getPhotoLink()).get());
+
+        return "user/profile";
     }
 
     @GetMapping("registration")
@@ -134,7 +133,8 @@ public class UserController {
             return "user/registration";
         }
         userService.save(userForm);
-        return "redirect:/profile";
+        model.addAttribute("sucessuser", "Пользователь успешно создан, можете авторизоваться");
+        return "user/login";
     }
 
     @GetMapping("login")
