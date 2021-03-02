@@ -54,7 +54,8 @@
             </div>
 
             <div class="buttons simple shine">
-                <button class="green" onclick="alert('Поделиться')">Генерировать ссылку</button>
+                <button class="green" onclick="alert('')" th:attr="${'onclick=alert()'}">Генерировать ссылку</button>
+                <!--<button class="green" onclick="alert('Поделиться')">Генерировать ссылку</button>-->
             </div>
             <div class="buttons simple shine">
                 <form th:action="@{/kit/delete/}" method="get">
