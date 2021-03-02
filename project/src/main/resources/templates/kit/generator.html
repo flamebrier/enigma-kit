@@ -17,11 +17,13 @@
     <div th:replace="~{fragments/header :: sign}"></div>
 </header>
 <main>
+    <span th:text="${errorAddKit}" style="color: #d3101f">To many enigmas</span>
     <form enctype="multipart/form-data" action="/kit/save" method="post" th:object="${kit}">
         <br/>
         <div id="gen">
             <div class="about">
                 <input type="hidden" th:field="*{id}">
+                <input type="hidden" th:field="*{uuid}">
                 <label>
                     <b>Название:</b>
                     <input maxlength="150" placeholder="Название кита" th:field="*{name}" type="text">

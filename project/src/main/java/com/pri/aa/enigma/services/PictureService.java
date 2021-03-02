@@ -17,16 +17,17 @@ public class PictureService {
 
     @Value("${proj.basedir}")
     private String projectPath;
-    private String avatarsPath = "/src/main/resources/static/img/ava/";
-    private String enigmaPath = "/src/main/resources/static/img/enigma/";
+    private String pathToImgDir = "/src/main/resources/static/img/";
+    private String avaDir = "/ava/";
+    private String enigmaDir = "/enigma/";
 
-    public Optional<String> picturePathToString (String filePath) {
+    public Optional<String> picturePathToString (String imgDir, String imgName) {
         Optional<String> picture;
         try {
             picture = Optional.of(
                     Base64Utils.encodeToString(
                             new FileInputStream(
-                                    new File(projectPath + avatarsPath + filePath)
+                                    new File(projectPath + pathToImgDir + imgDir + imgName)
                             ).readAllBytes()
                     )
             );
@@ -37,18 +38,18 @@ public class PictureService {
         return picture;
     }
 
-    public Optional<String> getPictureString(String picturePath) {
-        Optional<String> picture = picturePathToString(picturePath);
+    public Optional<String> getPictureString(String imgDir, String imgName) {
+        Optional<String> picture = picturePathToString(imgDir, imgName);
         if (!picture.isPresent()) {
-            picture = picturePathToString("nophoto.png");
+            picture = picturePathToString(imgDir,"nophoto.png");
         }
 
         return picture;
     }
 
-    public Optional<String> savePictureLocaly(MultipartFile file, String imgPath) {
+    public Optional<String> savePictureLocaly(MultipartFile file, String imgDir) {
 
-        String uploadPath = projectPath + imgPath;
+        String uploadPath = projectPath + pathToImgDir + imgDir;
 
         try {
             File uploadDir = new File(uploadPath);
@@ -66,5 +67,13 @@ public class PictureService {
         } catch (Exception e) {
             return Optional.empty();
         }
+    }
+
+    public String getAvaDir() {
+        return avaDir;
+    }
+
+    public String getEnigmaDir() {
+        return enigmaDir;
     }
 }

@@ -31,6 +31,10 @@ public class KitService {
         return kitRepository.findById(id);
     }
 
+    public Optional<Kit> getByUuid(String uuid) {
+        return kitRepository.getKitByUuid(uuid);
+    }
+
     public List<Kit> getAllByUser(User user) {
         return kitRepository.findAllByUser(user);
     }

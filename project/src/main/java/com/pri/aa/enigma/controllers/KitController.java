@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Controller
 public class KitController {
@@ -25,7 +26,6 @@ public class KitController {
     private EnigmaService enigmaService;
     private UserService userService;
     private PictureService pictureService;
-    private String enigmaPath = "/src/main/resources/static/img/enigma/";
 
     @Autowired
     public KitController(KitService kitService, EnigmaService enigmaService,
@@ -50,6 +50,8 @@ public class KitController {
 
         kit.setEnigmas(enigmas);
 
+        kit.setUuid(UUID.randomUUID().toString());
+
         kitService.save(kit);
 
         model.addAttribute("kit", kit);
@@ -71,7 +73,8 @@ public class KitController {
                 kitService.save(kit.get());
                 model.addAttribute("kit", kit.get());
             } else {
-                model.addAttribute("error", "Максимальное число энигм в ките - 5");
+                model.addAttribute("errorAddKit", "Максимальное число энигм в ките - 5");
+                model.addAttribute("kit", kit.get());
             }
 
         } else {
@@ -89,7 +92,9 @@ public class KitController {
                         enigma.getImg().get().getSize() != 0) {
                     Optional<String> filePath =
                             pictureService.savePictureLocaly(
-                                    enigma.getImg().get(), enigmaPath);
+                                    enigma.getImg().get(),
+                                    pictureService.getEnigmaDir()
+                            );
                     if (filePath.isPresent()) {
                         enigma.setImgLink(filePath.get());
                     } else {
@@ -114,7 +119,8 @@ public class KitController {
         model.addAttribute("username", curUser.getUsername());
         model.addAttribute("kits", kits);
         model.addAttribute("ava", pictureService.getPictureString(
-                curUser.getPhotoLink()).get());
+                pictureService.getAvaDir(),
+                curUser.getPhotoLink()).orElse("no photo"));
         return "kit/map";
     }
 
@@ -136,5 +142,15 @@ public class KitController {
                 curUser.getUsername() == curKit.get().getUser().getUsername())
         kitService.delete(id);
         return "redirect:/kit/map";
+    }
+
+    @GetMapping("kit/exec/{id}")
+    public String getKitById(@PathVariable Optional<String> id,
+                             Model model) {
+        if (id.isPresent()) {
+            model.addAttribute("kit", kitService.getByUuid(id.get()));
+        }
+
+        return "kit/one_game";
     }
 }

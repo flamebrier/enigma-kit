@@ -49,6 +49,7 @@ public class UserController {
                 model.addAttribute("kits", kits);
                 model.addAttribute("username", curUser.get().getUsername());
                 model.addAttribute("ava",pictureService.getPictureString(
+                                pictureService.getAvaDir(),
                                 curUser.get().getPhotoLink()).orElse("no photo"));
                 return "kit/map";
             } else {
@@ -59,6 +60,7 @@ public class UserController {
         curUser = Optional.ofNullable(userService.findByUsername(principal.getName()));
         model.addAttribute("userForm", curUser.get());
         model.addAttribute("ava", pictureService.getPictureString(
+                pictureService.getAvaDir(),
                 curUser.get().getPhotoLink()).orElse("no photo"));
         return "user/profile";
     }
@@ -73,7 +75,8 @@ public class UserController {
                 file.getOriginalFilename().isBlank()) {
             model.addAttribute("nonDataError", "Нет данных для обновления");
             model.addAttribute("userForm", userFromDb);
-            model.addAttribute("ava", pictureService.getPictureString(userFromDb.getPhotoLink()).get());
+            model.addAttribute("ava", pictureService.getPictureString(
+                    pictureService.getAvaDir(),userFromDb.getPhotoLink()).get());
             return "user/profile";
         }
 
@@ -88,7 +91,8 @@ public class UserController {
         }
 
         if (file.getSize() != 0) {
-            Optional<String> filePath = pictureService.savePictureLocaly(file, pathToAvatars);
+            Optional<String> filePath = pictureService.savePictureLocaly(file,
+                    pictureService.getAvaDir());
             if (filePath.isPresent()) {
                 userFromDb.setPhotoLink(filePath.get());
             } else {
@@ -98,7 +102,8 @@ public class UserController {
 
         userService.update(userFromDb);
         model.addAttribute("userForm", userFromDb);
-        model.addAttribute("ava", pictureService.getPictureString(userFromDb.getPhotoLink()).get());
+        model.addAttribute("ava", pictureService.getPictureString(
+                pictureService.getAvaDir(),userFromDb.getPhotoLink()).get());
 
         return "user/profile";
     }

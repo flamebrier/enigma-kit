@@ -17,6 +17,7 @@ public class Kit {
     @ManyToOne
     private User user;
     private Boolean isPublic;
+    private String uuid;
 
     public Kit() {
     }
@@ -75,5 +76,13 @@ public class Kit {
 
     public void setPublic(Boolean aPublic) {
         isPublic = aPublic;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 }
