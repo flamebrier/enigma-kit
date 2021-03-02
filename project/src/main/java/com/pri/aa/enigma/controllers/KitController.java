@@ -144,13 +144,19 @@ public class KitController {
         return "redirect:/kit/map";
     }
 
-    @GetMapping("kit/exec/{id}")
-    public String getKitById(@PathVariable Optional<String> id,
+    @GetMapping("kit/exec")
+    public String getKitById(@RequestParam Optional<String> id,
                              Model model) {
         if (id.isPresent()) {
-            model.addAttribute("kit", kitService.getByUuid(id.get()));
+            Optional<Kit> kit = kitService.getByUuid(id.get());
+            if (kit.isPresent()) {
+                model.addAttribute("kit", kit.get());
+                return "kit/one_game";
+            } else {
+                model.addAttribute("linkError", "Кита с такой ссылкой нет");
+            }
         }
 
-        return "kit/one_game";
+        return "index";
     }
 }

@@ -18,15 +18,30 @@
             Пятнашки
         </div>
         <div class="game">
-            <img alt="game" th:src="@{/img/enigma/blocks.png}">
+            <!--<img alt="game" th:src="@{/img/enigma/blocks.png}">-->
+            <img alt="game" th:src="${'data:image/jpg;base64,' +
+            @pictureService.getPictureString('/enigma/', kit.enigmas[0].imgLink).get()}">
             <div class="enigma">
-                <p class="name">
-                    Пятнашки
+                <p class="name" th:if="${kit.enigmas[0].enigmaType != null}"
+                   th:text="${kit.enigmas[0].enigmaType.displayValue}">
+                    <!--Пятнашки-->
                 </p>
-                <p>
-                    <b>Описание:</b> классическая игра, выдающая после прохождения код для следующего задания.
-                    Результат, полученный до этого, влияет на количество пятнашек в наборе
+                <p class="name" th:if="${kit.enigmas[0].enigmaType == null}"
+                   th:text="${'Тип энигмы не указан'}">
+                    <!--Пятнашки-->
                 </p>
+
+                <p th:if="${kit.enigmas[0].description != null && kit.enigmas[0].description.length() > 0}"
+                   th:utext="${'<b>Описание:</b> ' + kit.enigmas[0].description}">
+                    <!--<b>Описание:</b> классическая игра, выдающая после прохождения код для следующего задания.
+                    Результат, полученный до этого, влияет на количество пятнашек в наборе-->
+                </p>
+
+                <p th:if="${kit.enigmas[0].description == null || kit.enigmas[0].description.length() < 1}"
+                   th:utext="${'<b>Описание:</b> ' + 'без описания'}">
+
+                </p>
+
                 <p><b>Возможность задать:</b></p>
                 <ul>
                     <li>Тип ключа</li>

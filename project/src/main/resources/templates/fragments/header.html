@@ -24,9 +24,10 @@
 </div>
 
 <div th:fragment="find">
-    <form id="find">
+    <span th:text="${linkError}" style="color: #d3101f">To many enigmas</span>
+    <form id="find" th:action="@{/kit/exec}" method="get">
         <label>
-            <input placeholder="Введите код кита" type="url"/>
+            <input name="id" placeholder="Введите код кита" type="text"/>
             <button>🔍</button>
         </label>
     </form>
