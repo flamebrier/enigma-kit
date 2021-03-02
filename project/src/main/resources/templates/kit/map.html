@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Supple - подари гибкий мозг!</title>
@@ -54,81 +54,28 @@
             </div>
 
             <div class="buttons simple shine">
-                <button class="green" onclick="alert('Поделиться')">Генерировать ссылку</button>
+                <button class="green click" onclick="alert(uuid)">Генерировать ссылку</button>
             </div>
             <div class="buttons simple shine">
-                <form th:action="@{/kit/delete/}" method="get">
+                <form name="delForm" th:action="@{/kit/delete/}" method="get">
+                    <input class="uuid" name="uuidi" th:value="${kit.uuid}" type="hidden">
                     <input name="id" th:value="${kit.id}" type="hidden">
                     <div sec:authorize="isAuthenticated()">
                         <p th:if="${@userService.getCurrentAuthUser().username == kit.user.username}"
                            th:utext="${'<input class=grey type=submit value=Удалить>'}"></p>
+
                     </div>
                     <!--<input type="submit" value="Удалить">-->
                 </form>
+                <form name="editForm" th:action="@{/kit/edit}" method="get">
+                    <input name="uuid" th:value="${kit.uuid}" type="hidden">
+                    <p th:if="${@userService.getCurrentAuthUser().username == kit.user.username}"
+                       th:utext="${'<input class=grey type=submit value=Редактировать>'}"></p>
+                </form>
             </div>
         </div>
-
-        <!--<div class="kit">
-            <div class="arrow"><p><a th:href="@{/kit/exec}">Пройти!</a></p></div>
-            <div class="img">
-                <img alt="Кит" th:src="@{/img/enigma/blocks.png}"/>
-            </div>
-            <div class="info">
-                <p class="name">
-                    Ностальгический кит
-                </p>
-                <p class="author">
-                    <b>Автор:</b> <a th:href="@{/profile}">Flamebrier</a>
-                </p>
-                <p>
-                    <b>Описание:</b> Кит из простых игр из детства и шифрования
-                </p>
-
-                <div class="stages">
-                    <p class="s">Этап 1</p>
-                    <p class="n"><a th:href="@{/kit/game}">Пятнашки</a> (сложность 5)</p>
-                    <p class="s">Этап 2</p>
-                    <p class="n"><a th:href="@{/kit/game}">Виселица</a> (сложность 7)</p>
-                    <p class="s">Этап 3</p>
-                    <p class="n"><a th:href="@{/kit/game}">Шифрование перестановкой</a> (сложность 2)</p>
-                </div>
-            </div>
-            <div class="buttons simple shine">
-                <button class="green" onclick="alert('Поделиться')">Генерировать ссылку</button>
-            </div>
-        </div>
-        <div class="kit">
-            <div class="arrow"><p><a th:href="@{/kit/exec}">Пройти!</a></p></div>
-            <div class="img">
-                <img th:src="@{/img/ava/nophoto.jpg}"/>
-            </div>
-            <div class="info">
-                <p class="name">
-                    Супер-сложный кит
-                </p>
-                <p class="author">
-                    <b>Автор:</b> <a th:href="@{/profile/arvyb}">ArvyB</a>
-                </p>
-                <p>
-                    <b>Описание:</b> Кит для тех, кто хочет долго думать
-                </p>
-
-                <div class="stages">
-                    <p class="s">Этап 1</p>
-                    <p class="n"><a th:href="@{/kit/game}">Шифрование перестановкой</a> (сложность 10)</p>
-                    <p class="s">Этап 2</p>
-                    <p class="n"><a th:href="@{/kit/game}">Пятнашки</a> (сложность 10)</p>
-                    <p class="s">Этап 3</p>
-                    <p class="n"><a th:href="@{/kit/game}">Виселица</a> (сложность 10)</p>
-                </div>
-            </div>
-            <div class="buttons simple shine">
-                <button class="green big" onclick="alert('Поделиться')">Генерировать ссылку</button>
-            </div>
-        </div>-->
     </div>
     <div class="user simple shine">
-        <!--<img src="/img/ava/flamebrier.jpg" alt="flamebrier">-->
         <img th:src="@{'data:image/jpg;base64,' + ${ava}}">
         <h1><p th:text="${username}"></p></h1>
         <a th:href="@{/profile}">
@@ -138,4 +85,17 @@
 
 </main>
 </body>
+<script>
+    // let uuid = document.querySelector('.uuid');
+    // let uuid = document.getElementById("uuid").value;
+    // const welcome = () => {
+    //     let uuid = document.querySelector('.uuid');
+    //
+    //     if (!login.value) alert('Заполните поле "Логин"');
+    //     else if (!pass.value) alert('Заполните поле "Пароль"');
+    //     else alert(`Добро пожаловать, ${login.value}!`);
+    // }
+    //
+    // document.querySelector('.enterb').addEventListener('click', welcome);
+</script>
 </html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Supple - подари гибкий мозг!</title>
+    <link rel="stylesheet" th:href="@{/css/commonStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/genStyle.css}">
+
+</head>
+<body>
+
+<div th:replace="~{fragments/header :: navigation}"></div>
+
+<div th:replace="~{fragments/header :: find}"></div>
+<header>
+    <h1><b>Редактирование</b> кита</h1>
+    <div th:replace="~{fragments/header :: sign}"></div>
+</header>
+<main>
+    <form enctype="multipart/form-data" action="/kit/save" method="post" th:object="${kit}">
+        <br/>
+        <div id="gen">
+            <div class="about">
+                <input type="hidden" th:field="*{id}">
+                <input type="hidden" th:field="*{uuid}">
+                <label>
+                    <b>Название:</b>
+                    <input maxlength="150" placeholder="Название кита" th:field="*{name}" th:value="${kit.name}" type="text">
+                </label>
+                <br/><br/>
+                <label>
+                    <b>Описание кита:</b>
+                    <textarea maxlength="250" th:field="*{description}" th:value="${kit.description}">
+</textarea>
+                </label>
+            </div>
+            <div class="enigma" th:each="enigma, itemStat : *{enigmas}">
+                <div class="arrow"><p th:text="${'Этап ' + itemStat.count}"></p></div>
+                <div id="custform">
+                    <div th:replace="fragments/selector :: enigma-type"></div>
+
+                    <label class="gen-img">
+                        <b>Изображение: </b>
+                        <img th:src="${'data:image/jpg;base64,' +
+                            @pictureService.getPictureString('/enigma/', enigma.imgLink).get()}">
+                        <input th:field="*{enigmas[__${itemStat.index}__].img}" type="file" name="enigmaimg">
+                    </label>
+                    <label><b>Описание: </b></label>
+                    <input th:field="*{enigmas[__${itemStat.index}__].description}"
+                           th:value="${enigma.description}">
+
+                    <div th:replace="fragments/selector :: key-type"></div>
+
+                    <label> Сложность:
+                        <input th:field="*{enigmas[__${itemStat.index}__].complexity}"
+                               th:value="${enigma.complexity}" max="10" min="1" name="gen-difficulty" step="1" type="range" value="5">
+                    </label>
+                </div>
+            </div>
+
+            <div class="add">
+                <a th:href="@{|/kit/enigma/add/${kit.id}|}">
+                    +
+                </a>
+            </div>
+        </div>
+        <div class="shine" id="submit">
+            <input class="yellow" onclick="alert('Сохранено как черновик')" type="button" value="Черновик">
+            <input class="green" type="submit" value="Готово!">
+            <input class="grey" type="button" value="Отмена">
+        </div>
+    </form>
+</main>
+</body>
+</html>

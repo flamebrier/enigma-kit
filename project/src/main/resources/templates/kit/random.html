@@ -16,10 +16,43 @@
     <div class="stage">
         <div class="info">
             <p>Этап <b>1</b> из <b>3</b></p>
-            Пятнашки
+            <p class="name" th:if="${kit.enigmas[0].enigmaType != null}"
+               th:text="${kit.enigmas[0].enigmaType.displayValue}">
+                <!--Пятнашки-->
+            </p>
+            <p class="next"><a><img th:src="@{/img/arrow_forward_white_48dp.png}" alt="Далее"></a></p>
         </div>
         <div class="game">
-            <img alt="game" th:src="@{/img/enigma/blocks.png}">
+            <!--<img alt="game" th:src="@{/img/enigma/blocks.png}">-->
+            <img alt="game" th:src="${'data:image/jpg;base64,' +
+            @pictureService.getPictureString('/enigma/', kit.enigmas[0].imgLink).get()}">
+            <div class="enigma">
+                <p class="name" th:if="${kit.enigmas[0].enigmaType != null}"
+                   th:text="${kit.enigmas[0].enigmaType.displayValue}">
+                    <!--Пятнашки-->
+                </p>
+                <p class="name" th:if="${kit.enigmas[0].enigmaType == null}"
+                   th:text="${'Тип энигмы не указан'}">
+                    <!--Пятнашки-->
+                </p>
+
+                <p th:if="${kit.enigmas[0].description != null && kit.enigmas[0].description.length() > 0}"
+                   th:utext="${'<b>Описание:</b> ' + kit.enigmas[0].description}">
+                    <!--<b>Описание:</b> классическая игра, выдающая после прохождения код для следующего задания.
+                    Результат, полученный до этого, влияет на количество пятнашек в наборе-->
+                </p>
+
+                <p th:if="${kit.enigmas[0].description == null || kit.enigmas[0].description.length() < 1}"
+                   th:utext="${'<b>Описание:</b> ' + 'без описания'}">
+
+                </p>
+
+                <p><b>Возможность задать:</b></p>
+                <ul>
+                    <li>Тип ключа</li>
+                    <li>Сложность</li>
+                </ul>
+            </div>
         </div>
     </div>
 </main>

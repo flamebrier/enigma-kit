@@ -151,12 +151,26 @@ public class KitController {
             Optional<Kit> kit = kitService.getByUuid(id.get());
             if (kit.isPresent()) {
                 model.addAttribute("kit", kit.get());
-                return "kit/one_game";
+                return "kit/random";
             } else {
                 model.addAttribute("linkError", "Кита с такой ссылкой нет");
             }
         }
 
         return "index";
+    }
+
+    @GetMapping("kit/edit")
+    public String editKitById(@RequestParam Optional<String> uuid,
+                              Model model) {
+        if (uuid.isPresent()) {
+            Optional<Kit> kit = kitService.getByUuid(uuid.get());
+            if (kit.isPresent()) {
+                model.addAttribute("kit", kit.get());
+                return "kit/edit";
+            }
+        }
+
+        return "redirect:/profile";
     }
 }
