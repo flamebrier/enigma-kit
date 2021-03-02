@@ -70,7 +70,7 @@ body {
     }
 }
 
-button {
+button, input[type=submit] {
     color: #1b1e21;
     font-size: 2em;
     font-family: SourceSansPro, sans-serif;
@@ -79,7 +79,7 @@ button {
     position: relative;
     overflow: hidden;
 }
-button:hover {
+button:hover, input[type=submit] {
     cursor: pointer;
 }
 
@@ -326,7 +326,7 @@ header b {
     color: #1b1e21;
 }
 
-.simple button {
+.simple button, .simple input[type=submit] {
     background-image: url("../img/bg_seamless3.png");
     background-size: 25vmin;
     background-attachment: fixed;
@@ -336,7 +336,7 @@ header b {
     border-radius: 10px;
     border: none;
 }
-.shine button:after {
+.shine button:after, .shine input[type=submit]:after {
     content: "";
     height: 400%;
     left: -200%;
@@ -355,11 +355,11 @@ header b {
     );
 }
 
-.shine button:hover {
+.shine button:hover, .shine input[type=submit]:hover {
     cursor: pointer;
 }
 
-.shine button:hover:after {
+.shine button:hover:after, .shine input[type=submit]:hover:after {
     left: -50%;
     opacity: 1;
     top: -100%;
@@ -368,11 +368,11 @@ header b {
     transition-timing-function: ease;
 }
 
-.shine button:active:after {
+.shine button:active:after, .shine input[type=submit]:hover:active:after {
     opacity: 0;
 }
 
-.simple button a:link {
+.simple button a:link, .simple input[type=submit] a:link {
     color: #1b1e21;
     text-decoration: none;
 }

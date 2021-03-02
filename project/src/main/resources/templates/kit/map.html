@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Supple - подари гибкий мозг!</title>
@@ -55,13 +55,11 @@
 
             <div class="buttons simple shine">
                 <button class="green" onclick="alert('Поделиться')">Генерировать ссылку</button>
-            </div>
-            <div class="buttons simple shine">
                 <form th:action="@{/kit/delete/}" method="get">
                     <input name="id" th:value="${kit.id}" type="hidden">
                     <div sec:authorize="isAuthenticated()">
                         <p th:if="${@userService.getCurrentAuthUser().username == kit.user.username}"
-                           th:utext="${'<input type=submit value=Удалить>'}"></p>
+                           th:utext="${'<input class=grey type=submit value=Удалить>'}"></p>
                     </div>
                     <!--<input type="submit" value="Удалить">-->
                 </form>

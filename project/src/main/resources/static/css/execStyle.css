@@ -128,6 +128,10 @@ nav a:hover{
     margin-right: -5vw;
     text-align: left;
 }
+.stage .info .next {
+    position: absolute;
+    margin-top: -28px;
+}
 .stage .game {
     overflow: auto;
     width: 100%;

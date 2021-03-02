@@ -15,7 +15,12 @@
 <main>
     <div class="stage">
         <div class="info">
-            Пятнашки
+            <p>Этап <b>1</b> из <b>3</b></p>
+            <p class="name" th:if="${kit.enigmas[0].enigmaType != null}"
+               th:text="${kit.enigmas[0].enigmaType.displayValue}">
+                <!--Пятнашки-->
+            </p>
+            <p class="next"><a><img th:src="@{/img/arrow_forward_white_48dp.png}" alt="Далее"></a></p>
         </div>
         <div class="game">
             <!--<img alt="game" th:src="@{/img/enigma/blocks.png}">-->
