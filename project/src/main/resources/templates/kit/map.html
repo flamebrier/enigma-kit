@@ -21,7 +21,7 @@
         <p th:if="${kits!= null && kits.size() < 1}" th:utext="${'<h1>Нет созданных китов</h1>'}">
         </p>
         <div class="kit" th:each="kit : ${kits}">
-            <div class="arrow"><p><a th:href="@{/kit/exec}">Пройти!</a></p></div>
+            <div class="arrow"><p><a th:href="@{|/kit/exec?id=${kit.uuid}|}">Пройти!</a></p></div>
             <div class="img">
                 <img alt="Кит" th:src="@{/img/enigma/blocks.png}"/>
             </div>

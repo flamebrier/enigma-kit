@@ -20,7 +20,7 @@
                th:text="${kit.enigmas[0].enigmaType.displayValue}">
                 <!--Пятнашки-->
             </p>
-            <p class="next"><a><img th:src="@{/img/arrow_forward_white_48dp.png}" alt="Далее"></a></p>
+            <p class="next"><a th:href="@{|/kit/enigma/${kit.id}|}">Далее</a></p>
         </div>
         <div class="game">
             <!--<img alt="game" th:src="@{/img/enigma/blocks.png}">-->
